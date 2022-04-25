@@ -9,8 +9,8 @@ class HomeController extends Controller
 {
   public function index()
   {
-    $pageTexts = Helper::getPageTexts('home');
+    $data = Helper::getPageTexts('home');
 
-    return view('pages.home', compact('pageTexts'));
+    return view('pages.home', compact('data'));
   }
 }

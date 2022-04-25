@@ -21,7 +21,7 @@
     </p>
     <p class="apply-form__element">
       <label class="apply-form__label" for="file">Загрузить своё резюме</label>
-      <input class="visually-hidden" name="cv" type="file" required data-pristine-required-message="Загрузите свое резюме">
+      <input class="visually-hidden" name="cv" type="file" id="file" required data-pristine-required-message="Загрузите свое резюме">
     </p>
     <p class="apply-form__element">
       <button class="apply-form__submit" type="submit">Отправить</button>

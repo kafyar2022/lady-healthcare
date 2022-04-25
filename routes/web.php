@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\CarrierController;
+use App\Http\Controllers\DrugsController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,5 +17,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/products', [ProductsController::class, 'index'])->name('products');
+Route::get('/drugs', [DrugsController::class, 'index'])->name('drugs');
+Route::get('/drugs/{slug}', [DrugsController::class, 'show'])->name('drugs.show');
 Route::post ('/carrier/apply', [CarrierController::class, 'apply'])->name('carrier.apply');

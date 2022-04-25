@@ -232,6 +232,36 @@ class TextsSeeder extends Seeder
         'caption' => 'carrier-apply-title',
         'text' => 'Карьера в Lady Healthcare',
       ),
+      array(
+        'page' => 'drugs',
+        'caption' => 'to-drug',
+        'text' => 'К препарату',
+      ),
+      array(
+        'page' => 'drugs',
+        'caption' => 'our-drugs-title',
+        'text' => 'Наши препараты',
+      ),
+      array(
+        'page' => 'drugs',
+        'caption' => 'for-women-label',
+        'text' => 'Для женщин',
+      ),
+      array(
+        'page' => 'drugs',
+        'caption' => 'for-kids-label',
+        'text' => 'Для детей',
+      ),
+      array(
+        'page' => 'drugs',
+        'caption' => 'attention-title',
+        'text' => 'Внимание',
+      ),
+      array(
+        'page' => 'drugs',
+        'caption' => 'attention-text',
+        'text' => 'Информация, представленная на сайте, не должна использоваться для самостоятельной диагностики и лечения и не может служить заменой очной консультации врача.',
+      ),
     );
 
     foreach ($texts as $text) {
