@@ -16,7 +16,7 @@ class BannersSeeder extends Seeder
   {
     foreach (range(1, 2) as $key) {
       Banner::create([
-        'content' => 'content',
+        'content' => '<h1>Нео Витес</h1><p>для иммунитета</p><p>НЕО ВИТЕС (для иммунитета) стимулирует как специфические, так и неспецифические факторы иммунитета.</p><a href="#">К препарату</a>',
         'img' => 'img-' . $key . '.png',
       ]);
     }

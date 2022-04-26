@@ -104,6 +104,10 @@
   </main>
 @endsection
 
+@section('carrier')
+  @include('layouts.carrier')
+@endsection
+
 @section('script')
   {{-- script --}}
 @endsection

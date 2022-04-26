@@ -262,6 +262,38 @@ class TextsSeeder extends Seeder
         'caption' => 'attention-text',
         'text' => 'Информация, представленная на сайте, не должна использоваться для самостоятельной диагностики и лечения и не может служить заменой очной консультации врача.',
       ),
+      array(
+        'page' => 'drugs-show',
+        'caption' => 'similar-title',
+        'text' => 'Похожие препараты',
+      ),
+      array(
+        'page' => null,
+        'caption' => 'home-link',
+        'text' => 'Главная',
+      ),
+      array(
+        'page' => null,
+        'caption' => 'drug-link',
+        'text' => 'Все препараты',
+      ),
+      array(
+        'page' => 'drugs-show',
+        'caption' => 'download-instruction',
+        'text' => 'Скачать
+инструкцию',
+      ),
+      array(
+        'page' => 'drugs-show',
+        'caption' => 'drugs-buy',
+        'text' => 'Приобрести
+препарат',
+      ),
+      array(
+        'page' => 'drugs-show',
+        'caption' => 'similar-drugs-title',
+        'text' => 'Похожие препараты',
+      ),
     );
 
     foreach ($texts as $text) {

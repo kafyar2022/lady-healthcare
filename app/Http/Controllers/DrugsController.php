@@ -29,8 +29,11 @@ class DrugsController extends Controller
 
   public function show($slug)
   {
+    $data = Helper::getPageTexts('drugs-show');
+    $data['banners'] = Banner::get();
     $drug = Drug::where('slug', $slug)->first();
+    $data['similar-drugs'] = Drug::where('direction_id', $drug->direction_id)->take(3)->get();
 
-    return view('pages.drugs-show', compact('drug'));
+    return view('pages.drugs-show', compact('data', 'drug'));
   }
 }

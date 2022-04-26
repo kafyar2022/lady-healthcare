@@ -6,15 +6,15 @@
   <main class="container">
     <h1 class="visually-hidden">Препараты Lady Healthcare</h1>
 
-    <section class="popular-drugs">
-      <h2 class="visually-hidden">Популярные препараты</h2>
+    <section class="banner">
+      <h2 class="visually-hidden">Баннеры</h2>
 
       <div class="glide">
         <div class="glide__track" data-glide-el="track">
           <ul class="glide__slides">
             @foreach ($data['banners'] as $banner)
               <li class="glide__slide">
-                <div class="glide__inner">{{ $banner->content }}</div>
+                <div class="glide__inner">{!! $banner->content !!}</div>
                 <img class="glide__img" src="{{ asset('files/banners/' . $banner->img) }}" alt="{{ $banner->title }}">
               </li>
             @endforeach

@@ -22,7 +22,7 @@
 
   @include('layouts.footer')
 
-  @include('layouts.carrier')
+  @yield('carrier')
 
   @yield('script')
 </body>
