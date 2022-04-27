@@ -59,7 +59,8 @@ class TextsSeeder extends Seeder
       array(
         'page' => 'home',
         'caption' => 'slogan',
-        'text' => 'Нежная забота о вас',
+        'text' => 'Нежная
+забота о вас',
       ),
       array(
         'page' => 'home',
@@ -230,7 +231,8 @@ class TextsSeeder extends Seeder
       array(
         'page' => null,
         'caption' => 'carrier-apply-title',
-        'text' => 'Карьера в Lady Healthcare',
+        'text' => 'Карьера
+в Lady Healthcare',
       ),
       array(
         'page' => 'drugs',
