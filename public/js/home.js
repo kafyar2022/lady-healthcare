@@ -1,12 +1,10 @@
-import { formSubmitHandler } from './carrier-form.js';
+import { initApplyModal } from './apply-modal.js';
 import { initMap, resetMap } from './map.js';
 
 const valueEls = document.querySelectorAll('li.values-list__item');
-const applicationModalShowEl = document.querySelector('.carrier__join-link');
-const applicationModalEl = document.querySelector('#join');
 
 initMap();
-formSubmitHandler();
+initApplyModal();
 
 valueEls.forEach((el) => {
 
@@ -26,9 +24,3 @@ document.body.addEventListener('click', (evt) => {
   }
 });
 
-applicationModalEl.classList.add('apply', 'apply--hidden');
-
-applicationModalShowEl.addEventListener('click', (evt) => {
-  evt.preventDefault();
-  applicationModalEl.classList.remove('apply--hidden');
-});

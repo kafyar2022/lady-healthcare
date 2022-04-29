@@ -111,6 +111,7 @@ p {
 
 .button--submit:disabled:hover {
   box-shadow: none;
+  cursor: context-menu;
 }
 
 .visually-hidden {
@@ -787,9 +788,13 @@ p {
   transition: 0.3s;
 }
 
-.apply--hidden {}
+.apply--hidden {
+  visibility: hidden;
+  opacity: 0;
+}
 
 .apply__container {
+  position: relative;
   display: grid;
   grid-template-columns: 420px 420px;
   gap: 20px;
@@ -806,6 +811,61 @@ p {
   background-image: url("../img/apply.png");
   background-position: center center;
   background-repeat: no-repeat;
+}
+
+.vacancy-title {
+  color: #0191CD;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.vacancy-text {
+  margin-top: 0;
+  margin-bottom: 16px;
+  white-space: pre-wrap;
+}
+
+.vacancy-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.vacancy-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 300;
+  cursor: pointer;
+  user-select: none;
+}
+
+.vacancy-link::before {
+  content: "";
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  margin-right: 16px;
+  background-color: #0191CD;
+  background-image: url("../img/download.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.vacancy-link--upload::before {
+  transform: rotate(180deg);
+}
+
+.vacancy-link--upload-wating::before {
+  background-color: transparent;
+  border: 2px solid #989898;
+  background-image: url("../img/download--empty.svg");
+}
+
+.vacancy-link b {
+  font-size: 16px;
+  font-weight: 600;
+  display: inline-block;
 }
 
 .apply-title {
@@ -825,6 +885,7 @@ p {
 .apply__close {
   display: block;
   position: absolute;
+  z-index: 1;
   top: 32px;
   right: 32px;
   width: 32px;
@@ -853,6 +914,68 @@ p {
   margin-bottom: 0;
 }
 
+.apply__success {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 32px;
+  z-index: 0;
+  padding: 80px 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  background-image: url("../img/apply.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 270px 270px;
+}
+
+.apply__success-message {
+  margin: 0;
+}
+
+.apply__success-message::first-line {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.apply__link-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.apply__link {
+  display: flex;
+  width: 256px;
+  height: 56px;
+  border-radius: 50px;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.apply__link:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.apply__link--dark {
+  background-color: var(--primary-dark);
+}
+
+.apply__link--light {
+  background-color: var(--primary-light);
+}
+
 /* apply form */
 .apply-form__error {
   position: absolute;
@@ -879,11 +1002,6 @@ p {
   background-repeat: no-repeat;
   transform: rotate(90deg);
   transition: 0.3s;
-}
-
-.apply-form__element--cv {
-  visibility: hidden;
-  display: none;
 }
 
 .apply-form__field {

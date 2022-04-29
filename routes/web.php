@@ -21,3 +21,5 @@ Route::get('/drugs', [DrugsController::class, 'index'])->name('drugs');
 Route::get('/drugs/download-instruction/{id}', [DrugsController::class, 'downloadInstruction'])->name('drugs.download-instruction');
 Route::get('/drugs/{slug}', [DrugsController::class, 'show'])->name('drugs.show');
 Route::post ('/carrier/apply', [CarrierController::class, 'apply'])->name('carrier.apply');
+Route::get('/vacancies', [CarrierController::class, 'vacancies']);
+Route::get('/vacancy-download', [CarrierController::class, 'downloadVacancy']);

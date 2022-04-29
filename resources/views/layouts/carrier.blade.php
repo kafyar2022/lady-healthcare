@@ -1,4 +1,4 @@
-<section id="join">
+<section class="apply apply--hidden" id="join">
   <div class="apply__container">
     <div class="apply__left"></div>
     <div class="apply__right">
@@ -7,13 +7,13 @@
       <form class="apply-form" action="{{ route('carrier.apply') }}" method="post" enctype="multipart/form-data">
         @csrf
         <p class="apply-form__element">
-          <input class="apply-form__field" name="name" type="text" placeholder="Имя и фамилия" required data-pristine-required-message="Объязательное поле" autocomplete="off">
+          <input class="apply-form__field" name="name" type="text" placeholder="Имя и фамилия" required data-pristine-required-message="Объязательное поле">
         </p>
         <p class="apply-form__element">
-          <input class="apply-form__field" name="phone" type="tel" placeholder="Контактный телефон" required data-pristine-required-message="Объязательное поле" autocomplete="off">
+          <input class="apply-form__field" name="phone" type="tel" placeholder="Контактный телефон" required data-pristine-required-message="Объязательное поле">
         </p>
         <p class="apply-form__element">
-          <input class="apply-form__field" name="email" type="email" placeholder="Почта" required data-pristine-required-message="Объязательное поле" data-pristine-email-message="Неверный email" autocomplete="off">
+          <input class="apply-form__field" name="email" type="email" placeholder="Почта" required data-pristine-required-message="Объязательное поле" data-pristine-email-message="Неверный email">
         </p>
         <p class="apply-form__element apply-form__element--select">
           <select class="apply-form__field" name="vacancy">
@@ -23,9 +23,8 @@
             @endforeach
           </select>
         </p>
-        <p class="apply-form__element apply-form__element--cv">
-          <label class="apply-form__label" for="file">Загрузить своё резюме</label>
-          <input class="visually-hidden" name="cv" type="file" id="file" required data-pristine-required-message="Загрузите свое резюме">
+        <p class="visually-hidden">
+          <input name="cv" type="file" id="file" required data-pristine-required-message="Загрузите свое резюме">
         </p>
         <p class="apply-form__element">
           <button class="button button--submit apply-form__submit" type="submit">Отправить</button>
@@ -33,7 +32,7 @@
       </form>
       <p class="apply__aware-text">Нажимая кнопку «Отправить», я даю согласие на обработку моих персональных данных в соответствии с политикой конфиденциальности.</p>
 
-      <button class="apply__close">Скрыть</button>
+      <button class="apply__close" type="button">Скрыть</button>
     </div>
   </div>
 </section>

@@ -1,21 +1,28 @@
 const headers = {
   'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
 };
-const submitApplication = (formEl, onSuccess, onFail) =>
+
+const submitApplication = (body, onSuccess) =>
   fetch('/carrier/apply', {
     headers,
     method: 'post',
-    body: new FormData(formEl),
+    body,
   })
-    .then((response) => {
-      if (response.ok) {
-        onSuccess();
-      } else {
-        onFail();
-      }
+    .then(() => {
+      onSuccess();
     })
     .catch((err) => {
       console.error(err);
     })
 
-export { submitApplication };
+const getVacancies = (onSuccess) =>
+  fetch('/vacancies')
+    .then((response) => response.json())
+    .then((vacancies) => {
+      onSuccess(vacancies);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+
+export { submitApplication, getVacancies };
