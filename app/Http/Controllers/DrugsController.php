@@ -36,4 +36,15 @@ class DrugsController extends Controller
 
     return view('pages.drugs-show', compact('data', 'drug'));
   }
+
+  public function filterDrugs(Request $request)
+  {
+    $drugs = Drug::where('title', 'like', '%' . $request->json('keyword') . '%')
+      ->where('category', 'like', '%' .  $request->json('category') . '%')
+      ->where('prescription', 'like', '%' .  $request->json('prescription') . '%')
+      ->where('direction_id', 'like', '%' .  $request->json('direction') . '%')
+      ->paginate(8);
+
+    return json_encode(['template' => view('layouts.filter', compact('drugs'))->render()]);
+  }
 }

@@ -2,11 +2,11 @@
 
 <figure class="drug-card">
   <p class="drug-card__prescription">{{ $drug->prescription }}</p>
-  <img class="drug-card__img" src="{{ asset('files/drugs/img/' . $drug->img) }}" alt="{{ $drug->title }}">
+  <img class="drug-card__img" src="{{ asset('files/drugs/img/' . $drug->img) }}" width="160" height="160" alt="{{ $drug->title }}">
   <div class="drug-card__inner">
-    <h3 class="drug-card__title" data-icon="{{ $drug->icon }}">{{ $drug->title }}</h3>
+    <h3 class="drug-card__title">{{ $drug->title }} <i style="{{ $drug->icon ? 'background-image: url(../img/social-icons/' . $drug->icon . ')' : '' }}"></i></h3>
     <p class="drug-card__description">{{ $drug->description }}</p>
-    <p class="drug-card__filter">{{ $drug->category === 'for-kids' ? 'Для женщин' : 'Для детей' }} / {{ $drug->direction->title }}</p>
+    <p class="drug-card__filter">{{ $drug->category === 'for-women' ? 'Для женщин' : 'Для детей' }} / {{ $drug->direction->title }}</p>
   </div>
-  <a class="drug-card__link" href="{{ route('drugs.show', $drug->slug) }}">К препарату</a>
+  <a class="button button--outlined drug-card__link" href="{{ route('drugs.show', $drug->slug) }}">К препарату</a>
 </figure>

@@ -3,6 +3,26 @@
 @section('title', $drug->title . ' | Lady Healthcare')
 
 @section('content')
+  <section class="banner">
+    <h2 class="visually-hidden">Баннеры</h2>
+
+    <div class="glide">
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides">
+          @foreach ($data['banners'] as $banner)
+            <li class="glide__slide">
+              <div class="container glide__container">{!! $banner->content !!}</div>
+              <img class="glide__img" src="{{ asset('files/banners/' . $banner->img) }}" alt="{{ $banner->title }}">
+            </li>
+          @endforeach
+        </ul>
+      </div>
+      <div class="glide__arrows" data-glide-el="controls">
+        <button class="glide__arrow glide__arrow--right" data-glide-dir=">"></button>
+      </div>
+    </div>
+  </section>
+
   <main class="container">
     <h1 class="title">{{ $drug->title }}</h1>
 
@@ -15,25 +35,6 @@
       </li>
     </ul>
 
-    <section class="banner">
-      <h2 class="visually-hidden">Баннеры</h2>
-
-      <div class="glide">
-        <div class="glide__track" data-glide-el="track">
-          <ul class="glide__slides">
-            @foreach ($data['banners'] as $banner)
-              <li class="glide__slide">
-                <div class="glide__inner">{!! $banner->content !!}</div>
-                <img class="glide__img" src="{{ asset('files/banners/' . $banner->img) }}" alt="{{ $banner->title }}">
-              </li>
-            @endforeach
-          </ul>
-        </div>
-        <div class="glide__arrows" data-glide-el="controls">
-          <button class="glide__arrow glide__arrow--right" data-glide-dir=">"></button>
-        </div>
-      </div>
-    </section>
 
     <section class="product">
       <h2 class="title">Информация о продукте</h2>
