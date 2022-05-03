@@ -8,7 +8,7 @@ const centerCoordinates = {
 let map;
 
 const mainIcon = L.icon({
-  iconUrl: 'img/main-pin.svg',
+  iconUrl: '/img/main-pin.svg',
   iconSize: [52, 52],
   iconAnchor: [26, 52],
 });
@@ -29,6 +29,12 @@ const initMap = () => {
   ).addTo(map);
 
   mainMarker.addTo(map);
+
+  document.body.addEventListener('click', (evt) => {
+    if (evt.target.dataset.action === 'reset-map') {
+      resetMap();
+    }
+  });
 };
 
 const resetMap = () => {

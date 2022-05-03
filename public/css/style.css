@@ -1309,3 +1309,209 @@ input:checked+.filter-form__label--checkbox {
   line-height: 14px;
   font-weight: 600;
 }
+
+/* product show */
+.product-hgroup {
+  display: flex;
+  align-items: center;
+}
+
+.product-hgroup__title {
+  margin: 48px;
+  margin-left: 0;
+  text-transform: uppercase;
+}
+
+.breadcrumbs {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumbs__item:not(:last-child) {
+  margin-right: 32px;
+}
+
+.breadcrumbs__link {
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.product {
+  display: grid;
+  grid-template-columns: 700px auto;
+  gap: 64px;
+  align-items: flex-start;
+}
+
+.product-inner--left {
+  border: 2px solid var(--primary-dark);
+  border-radius: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 96px;
+  height: 560px;
+}
+
+.product__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product-inner--right {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product__composition {
+  display: flex;
+  height: 40px;
+  min-width: 140px;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  border: 1px solid #2C2C2C;
+  border-radius: 40px;
+  margin-right: 16px;
+}
+
+.product__prescription {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  color: #3C424E;
+  font-weight: 300;
+  border-radius: 50%;
+  border: 2px solid #008DC933;
+}
+
+.product__icon {
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  margin-right: 8px;
+  margin-left: 16px;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #008DC933;
+  border-radius: 50%;
+}
+
+.product__description {
+  margin-top: 24px;
+  margin-bottom: 8px;
+  width: 100%;
+  height: max-content;
+}
+
+.product__filter {
+  margin-top: 0;
+  margin-bottom: 32px;
+  width: 100%;
+  font-size: 13px;
+  color: #0191CD;
+}
+
+.product__link {
+  display: flex;
+  margin-right: 40px;
+  text-decoration: none;
+  margin-bottom: 40px;
+}
+
+.product__link p {
+  margin: 0;
+  align-self: center;
+  white-space: pre-wrap;
+}
+
+.product__link p::first-line {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.product__link::before {
+  content: "";
+  display: block;
+  width: 56px;
+  min-width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  margin-right: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.product__link--download::before {
+  background-color: var(--primary-dark);
+  background-image: url("../img/download.svg");
+}
+
+.product__link--buy::before {
+  background-color: var(--primary-light);
+  background-image: url("../img/basket.svg");
+}
+
+/* similar products section */
+.similar-drugs__product-list {
+  margin-bottom: 0;
+}
+
+/* accordion */
+.accordion {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin: 0;
+}
+
+.accordion__item {
+  border: 2px solid #008DC933;
+  border-radius: 50px;
+}
+
+.accordion__item:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.accordion__term {
+  display: flex;
+  height: 56px;
+  align-items: center;
+  padding-right: 40px;
+  padding-left: 40px;
+  cursor: pointer;
+}
+
+.accordion__term::after {
+  content: "";
+  display: block;
+  margin-left: auto;
+  width: 12px;
+  height: 12px;
+  background-image: url("../img/arrow-right.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: rotate(-90deg);
+  transition: 0.3s;
+}
+
+.accordion__term.accordion__description--hidden::after {
+  transform: rotate(0deg);
+}
+
+.accordion__description {
+  white-space: pre-wrap;
+  color: #989898;
+  margin-right: 72px;
+  margin-bottom: 28px;
+}
+
+.accordion__description--hidden+.accordion__description {
+  display: none;
+}

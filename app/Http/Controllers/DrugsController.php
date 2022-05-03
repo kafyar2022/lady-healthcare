@@ -47,4 +47,23 @@ class DrugsController extends Controller
 
     return json_encode(['template' => view('layouts.filter', compact('drugs'))->render()]);
   }
+
+  public function downloadInstruction($id)
+  {
+    $drug = Drug::select('id', 'instruction')->find($id);
+
+    if (!$drug->instruction) {
+      return back();
+    }
+
+    $file = public_path('files/drugs/instructions/' . $drug->instruction);
+
+    $extension = pathinfo($file, PATHINFO_EXTENSION);
+
+    $headers = array(
+      'Content-Type: application/' . $extension,
+    );
+
+    return response()->download($file, $drug->instruction, $headers);
+  }
 }

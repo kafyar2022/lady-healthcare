@@ -24,20 +24,21 @@
   </section>
 
   <main class="container">
-    <h1 class="title">{{ $drug->title }}</h1>
+    <div class="product-hgroup">
+      <h1 class="title product-hgroup__title">{{ $drug->title }}</h1>
 
-    <ul class="breadcrumbs">
-      <li class="breadcrumbs__item">
-        <a class="breadcrumbs__link" href="{{ route('home') }}">{{ $mainTexts['home-link'] }}</a>
-      </li>
-      <li class="breadcrumbs__item">
-        <a class="breadcrumbs__link" href="{{ route('drugs') }}">{{ $mainTexts['drug-link'] }}</a>
-      </li>
-    </ul>
-
+      <ul class="breadcrumbs">
+        <li class="breadcrumbs__item">
+          <a class="breadcrumbs__link" href="{{ route('home') }}">{{ $mainTexts['home-link'] }}</a>
+        </li>
+        <li class="breadcrumbs__item">
+          <a class="breadcrumbs__link" href="{{ route('drugs') }}">{{ $mainTexts['drug-link'] }}</a>
+        </li>
+      </ul>
+    </div>
 
     <section class="product">
-      <h2 class="title">Информация о продукте</h2>
+      <h2 class="title visually-hidden">Информация о продукте</h2>
 
       <div class="product-inner product-inner--left">
         <img class="product__img" src="{{ asset('files/drugs/img/' . $drug->img) }}" alt="{{ $drug->title }}">
@@ -45,27 +46,40 @@
       <div class="product-inner product-inner--right">
         <span class="product__composition">{{ $drug->min_composition }}</span>
         <span class="product__composition">{{ $drug->max_composition }}</span>
+        <span class="product__icon" style="{{ $drug->icon ? 'background-image: url(../img/social-icons/' . $drug->icon . ')' : '' }}"></span>
         <span class="product__prescription">{{ $drug->prescription }}</span>
         <p class="product__description">{{ $drug->description }}</p>
         <p class="product__filter">{{ $drug->category === 'for-kids' ? 'Для женщин' : 'Для детей' }} / {{ $drug->direction->title }}</p>
-        <a class="product__link product__link--download" href="{{ route('drugs.download-instruction', $drug->id) }}">{{ $data['download-instruction'] }}</a>
-        <a class="product__link product__link--buy" href="{{ $drug->url }}" target="_blank">{{ $data['drugs-buy'] }}</a>
+        @if ($drug->instruction)
+          <a class="product__link product__link--download" href="{{ route('drugs.download-instruction', $drug->id) }}">
+            <p>{{ $data['download-instruction'] }}</p>
+          </a>
+        @endif
+        <a class="product__link product__link--buy" href="{{ $drug->url }}" target="_blank">
+          <p>{{ $data['drugs-buy'] }}</p>
+        </a>
 
-        <dl>
-          <dt>Состав</dt>
-          <dd>{{ $drug->compound }}</dd>
-          <dt>Показания к применению</dt>
-          <dd>{{ $drug->indications }}</dd>
-          <dt>Способ применения</dt>
-          <dd>{{ $drug->mode }}</dd>
+        <dl class="accordion">
+          <div class="accordion__item">
+            <dt class="accordion__term accordion__description--hidden">Состав</dt>
+            <dd class="accordion__description">{{ $drug->compound }}</dd>
+          </div>
+          <div class="accordion__item">
+            <dt class="accordion__term accordion__description--hidden">Показания к применению</dt>
+            <dd class="accordion__description">{{ $drug->indications }}</dd>
+          </div>
+          <div class="accordion__item">
+            <dt class="accordion__term accordion__description--hidden">Способ применения</dt>
+            <dd class="accordion__description">{{ $drug->mode }}</dd>
+          </div>
         </dl>
       </div>
     </section>
 
     <section class="similar-drugs">
-      <h2 class="title">{{ $data['similar-drugs-title'] }}</h2>
+      <h2 class="title title--product">{{ $data['similar-drugs-title'] }}</h2>
 
-      <ul class="product-list">
+      <ul class="product-list similar-drugs__product-list">
         @foreach ($data['similar-drugs'] as $drug)
           <li class="product-list__item">
             <x-drug :drug="$drug" />
@@ -74,4 +88,8 @@
       </ul>
     </section>
   </main>
+@endsection
+
+@section('script')
+  <script src="{{ asset('js/drugs-show.js') }}" type="module"></script>
 @endsection

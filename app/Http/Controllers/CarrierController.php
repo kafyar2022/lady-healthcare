@@ -61,6 +61,5 @@ class CarrierController extends Controller
     );
 
     return response()->download($file, $vacancy->file, $headers);
-    // download vacancy description file
   }
 }
