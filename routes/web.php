@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CarrierController;
 use App\Http\Controllers\DrugsController;
 use App\Http\Controllers\HomeController;
@@ -26,3 +27,15 @@ Route::get('/drugs/{slug}', [DrugsController::class, 'show'])->name('drugs.show'
 Route::post('/carrier/apply', [CarrierController::class, 'apply'])->name('carrier.apply');
 Route::get('/vacancies', [CarrierController::class, 'vacancies']);
 Route::get('/vacancy-download', [CarrierController::class, 'downloadVacancy']);
+
+Route::post('/auth/check', [AuthController::class, 'check'])->name('auth.check');
+Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
+
+Route::group(['middleware' => ['AuthCheck']], function () {
+  Route::get('/auth/login', [AuthController::class, 'login'])->name('auth.login');
+
+  Route::group(['middleware' => ['AdminCheck'], 'prefix' => 'dashboard'], function () {
+    Route::get('/', [HomeController::class, ''])->name('dashboard.index');
+    // other dashboard routes
+  });
+});

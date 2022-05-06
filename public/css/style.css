@@ -847,6 +847,7 @@ p {
 .vacancy-link::before {
   content: "";
   width: 56px;
+  min-width: 56px;
   height: 56px;
   border-radius: 50%;
   margin-right: 16px;
@@ -1472,7 +1473,7 @@ input:checked+.filter-form__label--checkbox {
 
 .accordion__item {
   border: 2px solid #008DC933;
-  border-radius: 50px;
+  border-radius: 28px;
 }
 
 .accordion__item:not(:last-child) {
@@ -1514,4 +1515,349 @@ input:checked+.filter-form__label--checkbox {
 
 .accordion__description--hidden+.accordion__description {
   display: none;
+}
+
+/* adaptive */
+@media screen and (max-width: 1399px) {
+  .container {
+    max-width: 860px;
+  }
+
+  .main-header__container {
+    margin-top: 48px;
+  }
+
+  .site-navigation__link {
+    width: 100px;
+    height: 100px;
+  }
+
+  .site-navigation__item--for-women {
+    left: 240px;
+    top: 48px;
+  }
+
+  .site-navigation__item--for-kids {
+    top: 240px;
+    left: 584px;
+  }
+
+  .about::after,
+  .carrier::after {
+    left: 548px;
+  }
+
+  .about {
+    min-height: 560px;
+    background: url("../img/about-bg.png") center bottom/1000px no-repeat,
+      url("../img/flower-1.svg") no-repeat 200px 370px/200px,
+      url("../img/flower-2.svg") no-repeat 590px/200px;
+    padding-right: 64%;
+    padding-top: 80px;
+  }
+
+  .title--home {
+    margin-top: 32px;
+    margin-bottom: 24px;
+  }
+
+  .foundation-list {
+    gap: 16px;
+  }
+
+  .foundation__title {
+    line-height: 60px;
+  }
+
+  .foundation-list__item {
+    padding-top: 180px;
+    padding-right: 32px;
+    padding-left: 32px;
+    border-radius: 24px;
+  }
+
+  .foundation-list__item::before {
+    top: 180px;
+  }
+
+  .foundation-list__item:hover .foundation__title {
+    margin-top: 24px;
+  }
+
+  .values-list {
+    margin-bottom: 120px;
+  }
+
+  .carrier {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .carrier__text {
+    max-width: 500px;
+  }
+
+  .carrier__join-link {
+    right: 28px;
+  }
+
+  .drugs-list {
+    grid-template-rows: 240px;
+    gap: 16px;
+  }
+
+  .drugs-list__item {
+    border-radius: 24px;
+    padding-top: 180px;
+  }
+
+  .drugs-list__item::before {
+    top: 180px;
+  }
+
+  .drugs-list__title {
+    line-height: 60px;
+  }
+
+  .drugs-list__item:hover .drugs-list__title {
+    margin-top: auto;
+  }
+
+  .drugs-list__link {
+    margin-bottom: auto;
+    width: calc(100% - 48px);
+  }
+
+  .benefits-list {
+    grid-auto-rows: 1fr;
+    gap: 16px;
+  }
+
+  .benefits-list__item {
+    border-radius: 24px;
+    padding: 24px;
+    padding-left: 24px;
+    white-space: normal;
+  }
+
+  .benefits-list__item::before {
+    width: 60px;
+    min-width: 60px;
+    height: 60px;
+  }
+
+  .benefits-list__item::after {
+    top: calc(50% - 27px);
+    left: 27px;
+    width: 54px;
+    height: 54px;
+  }
+
+  .main-footer {
+    margin-top: 40px;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .map,
+  .main-footer::before {
+    height: calc(100% - 96px);
+  }
+
+  .main-footer__main-logo {
+    margin-top: 72px;
+    margin-right: auto;
+    margin-bottom: 40px;
+    margin-left: 56px;
+  }
+
+  .footer-contacts {
+    width: auto;
+    min-height: auto;
+    margin-right: 430px;
+    margin-bottom: 72px;
+    padding-right: 56px;
+    padding-left: 56px;
+  }
+
+  .copyright {
+    height: 96px;
+  }
+
+  .banner {
+    height: 560px;
+  }
+
+  .glide__container {
+    padding-right: 559px;
+    padding-left: 0px;
+    margin-top: 64px;
+  }
+
+  .glide__title {
+    font-size: 48px;
+  }
+
+  .glide__subtitle {
+    margin-bottom: 8px;
+  }
+
+  .glide__text {
+    margin-bottom: 16px;
+  }
+
+  .glide__arrow--right {
+    right: 35%;
+  }
+
+  .title--product {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+
+  .our-drugs-header {
+    margin-bottom: 24px;
+  }
+
+  .filter-form {
+    grid-template-columns: 10fr 10fr 12fr 14fr;
+    gap: 16px;
+  }
+
+  .product-list {
+    margin-bottom: 32px;
+    gap: 16px;
+  }
+
+  .attention-title {
+    margin-top: 32px;
+    margin-bottom: 8px;
+  }
+
+  .drug-card {
+    border-radius: 24px;
+    padding: 24px;
+    height: auto;
+  }
+
+  .drug-card__prescription {
+    width: 60px;
+    min-width: 60px;
+    height: 60px;
+    margin-right: 24px;
+  }
+
+  .drug-card__img {
+    margin-right: 24px;
+  }
+
+  .drug-card__title {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .drug-card__title i {
+    right: -56px;
+  }
+
+  .drug-card__link {
+    margin-left: 24px;
+    min-width: 200px;
+  }
+
+  .product-hgroup__title {
+    margin: 32px;
+    margin-left: 0;
+  }
+
+  .product {
+    gap: 24px;
+    grid-template-columns: 400px auto;
+  }
+
+  .product-inner--left {
+    height: 360px;
+    padding: 64px;
+    border-radius: 24px;
+  }
+
+  .product__icon {
+    margin-left: auto;
+  }
+
+  .product__description {
+    margin-top: 16px;
+  }
+
+  .product__filter {
+    margin-bottom: 24px;
+  }
+
+  .product__link {
+    margin-bottom: 24px;
+  }
+
+  .accordion__item:not(:last-child) {
+    margin-bottom: 8px;
+  }
+
+  .accordion__item {
+    border-radius: 24px;
+  }
+
+  .accordion__term {
+    height: 48px;
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .accordion__description {
+    margin-left: 24px;
+    margin-right: 48px;
+  }
+
+  .similar-drugs__product-list {
+    margin-bottom: 0;
+  }
+
+  .apply__container {
+    gap: 16px;
+    grid-template-columns: 408px 360px;
+    padding-top: 40px;
+    padding-right: 64px;
+    padding-bottom: 40px;
+    padding-left: 64px;
+  }
+
+  .apply-title {
+    margin-bottom: 24px;
+  }
+
+  .apply-form__field {
+    margin-bottom: 8px;
+  }
+
+  .apply-form__submit {
+    margin-top: 16px;
+  }
+
+  .apply__aware-text {
+    margin-top: 8px;
+  }
+
+  .apply__success {
+    padding: 48px 168px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .container {
+    max-width: 506px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .container {
+    max-width: 360px;
+  }
 }
