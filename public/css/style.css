@@ -297,7 +297,7 @@ p {
   right: 0;
   z-index: -1;
   height: 100%;
-  width: 100vw;
+  width: 100%;
   background-color: var(--primary-light);
 }
 
@@ -306,10 +306,10 @@ p {
   content: "";
   position: absolute;
   top: 0;
-  left: 860px;
+  left: 60vw;
   z-index: -1;
   height: 100%;
-  width: 100vw;
+  width: 40vw;
   background-color: var(--primary-dark);
 }
 
@@ -702,10 +702,12 @@ p {
 
 /* main footer */
 .main-footer {
+  position: relative;
   margin-top: 64px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  background-color: var(--secondary);
 }
 
 .main-footer__main-logo {
@@ -750,17 +752,6 @@ p {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.main-footer::before {
-  content: "";
-  position: absolute;
-  right: 50%;
-  top: 0;
-  width: 50vw;
-  height: calc(100% - 120px);
-  background-color: var(--secondary);
-  z-index: -1;
-}
-
 .copyright {
   display: flex;
   width: 100%;
@@ -772,6 +763,7 @@ p {
   text-transform: uppercase;
   font-weight: 300;
   margin: 0;
+  background-color: #fff;
 }
 
 /* apply modal section */
@@ -1542,18 +1534,17 @@ input:checked+.filter-form__label--checkbox {
     left: 584px;
   }
 
-  .about::after,
-  .carrier::after {
-    left: 548px;
-  }
-
   .about {
     min-height: 560px;
     background: url("../img/about-bg.png") center bottom/1000px no-repeat,
       url("../img/flower-1.svg") no-repeat 200px 370px/200px,
       url("../img/flower-2.svg") no-repeat 590px/200px;
-    padding-right: 64%;
+    padding-right: 0;
     padding-top: 80px;
+  }
+
+  .about__text {
+    max-width: 320px;
   }
 
   .title--home {
@@ -1657,11 +1648,6 @@ input:checked+.filter-form__label--checkbox {
     margin-top: 40px;
     flex-direction: column;
     height: auto;
-  }
-
-  .map,
-  .main-footer::before {
-    height: calc(100% - 96px);
   }
 
   .main-footer__main-logo {
@@ -1848,16 +1834,314 @@ input:checked+.filter-form__label--checkbox {
   .apply__success {
     padding: 48px 168px;
   }
+
+  .map {
+    height: calc(100% - 96px);
+  }
 }
 
 @media screen and (max-width: 991px) {
   .container {
     max-width: 506px;
   }
+
+  .site-navigation__item--for-women {
+    left: 72px;
+    top: 173px;
+  }
+
+  .site-navigation__item--for-kids {
+    top: 300px;
+    left: 340px;
+  }
+
+  .about {
+    padding: 0;
+    padding-bottom: 48px;
+    justify-content: flex-end;
+    background: url("../img/about-bg.png") center bottom/800px no-repeat,
+      url("../img/flower-1.svg") no-repeat 70px 440px/140px,
+      url("../img/flower-2.svg") no-repeat 370px 250px/140px;
+  }
+
+  .slogan {
+    font-size: 16px;
+  }
+
+  .slogan::first-line {
+    font-size: 32px;
+    font-weight: 600;
+  }
+
+  .about__text {
+    max-width: 300px;
+    box-shadow: 0px 0px 20px 10px rgb(0 0 0 / 15%);
+    background-color: rgba(0 0 0 / 12%);
+    color: #fff;
+  }
+
+  .foundation-list {
+    grid-template-columns: 1fr;
+  }
+
+  .values-list__item:not(:last-child) {
+    margin-right: 16px;
+  }
+
+  .values-list__item:not(:last-child)::after {
+    margin-left: 16px;
+  }
+
+  .values-list__title {
+    width: max-content;
+  }
+
+  .values-list {
+    flex-wrap: wrap;
+    margin-bottom: 130px;
+  }
+
+  .values-list__item {
+    margin-bottom: 8px;
+  }
+
+  .carrier__join-link {
+    position: relative;
+    left: 0;
+    margin-top: 24px;
+  }
+
+  .drugs-list {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 240px 240px;
+  }
+
+  .benefits-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .main-footer {
+    width: 100%;
+    max-width: none;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .glide__container {
+    padding-right: 250px;
+  }
+
+  .glide__title {
+    font-size: 32px;
+  }
+
+  .glide__subtitle {
+    font-size: 16px;
+  }
+
+  .glide__arrow--right {
+    right: 30%;
+  }
+
+  .filter-form {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .drug-card {
+    position: relative;
+  }
+
+  .drug-card__prescription {
+    display: none;
+    visibility: hidden;
+  }
+
+  .drug-card__link {
+    border: none;
+    color: transparent;
+    background-color: transparent;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .drug-card:hover .drug-card__link {
+    background-color: transparent;
+    color: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  .product {
+    grid-template-columns: 1fr;
+  }
+
+  .main-header__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .site-navigation {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    top: 300px;
+  }
+
+  .site-navigation__item {
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+
+  .about {
+    background: none;
+    min-height: auto;
+    padding-top: 450px;
+  }
+
+  .about__text {
+    max-width: 100%;
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+  .values-list {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 180px;
+  }
+
+  .values-list__item:last-child {
+    margin-right: 16px;
+  }
+
+  .values-list__item:last-child::after {
+    content: "";
+    width: 7px;
+    height: 12px;
+    background-image: url("../img/arrow-right.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-left: 16px;
+  }
+
+  .drugs-list {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 240px;
+  }
+
+  .benefits-list {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-contacts {
+    margin-right: 0;
+  }
+
+  .main-footer .container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 32px;
+    align-items: center;
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .main-footer__main-logo,
+  .footer-contacts {
+    margin: 0;
+    padding: 0;
+  }
+
+  .map {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    left: 0;
+  }
+
+  .apply__left:empty {
+    background: none;
+  }
+
+  .apply__container {
+    grid-template-columns: 1fr;
+    width: 100%;
+    border-radius: 0;
+    height: 100%;
+    overflow: scroll;
+  }
 }
 
 @media screen and (max-width: 575px) {
   .container {
     max-width: 360px;
+  }
+
+  .main-footer .container {
+    grid-template-columns: 1fr;
+  }
+
+  .banner {
+    height: auto;
+  }
+
+  .glide__container {
+    margin-top: 380px;
+    padding: 0;
+  }
+
+  .glide__text {
+    color: #fff;
+  }
+
+  .glide__link {
+    margin-bottom: 32px;
+  }
+
+  .glide__img {
+    filter: brightness(0.8);
+  }
+
+  .filter-form {
+    grid-template-columns: 1fr;
+  }
+
+  .drug-card {
+    display: grid;
+    gap: 24px;
+  }
+
+  .drug-card__img {
+    margin: 0;
+    width: 100%;
+    height: auto;
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+
+  .product-hgroup {
+    display: grid;
+  }
+
+  .breadcrumbs {
+    transform: translateY(-100%);
+  }
+
+  .product__composition {
+    min-width: 120px;
+  }
+
+  .product__link {
+    margin-right: 0;
   }
 }

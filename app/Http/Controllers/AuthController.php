@@ -8,30 +8,29 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-  public function login(Request $request)
+  public function login()
   {
     return view('auth.login');
   }
 
   public function check(Request $request)
   {
-    // Validation
     $request->validate([
       'login' => 'required|min:3',
       'password' => 'required|min:4'
     ]);
-    // Find user by login
+
     $user = User::where('trashed', false)->where('login', '=', $request->login)->first();
-    // Show fail when user is not founded
+
     if (!$user) {
       return back()->with('fail', 'Мы не узнаем ваш адрес для входа');
     }
-    // Match the passwords
+
     if (Hash::check($request->password, $user->password)) {
       $request->session()->put('loggedUser', $user->id);
       return redirect(route('dashboard'));
     }
-    // Show fail when password is not matched
+
     else {
       return back()->with('fail', 'Неверный пароль');
     }

@@ -3,26 +3,30 @@
 @section('title', 'Lady Healthcare')
 
 @section('content')
-  <main class="container">
-    <h1 class="visually-hidden">Lady Healthcare</h1>
+  <main class="page-content">
+    <div class="container">
+      <h1 class="visually-hidden">Lady Healthcare</h1>
 
-    <ul class="site-navigation">
-      <li class="site-navigation__item site-navigation__item--for-women">
-        <a class="site-navigation__link" href="{{ route('drugs') }}?category=for-women">{{ $data['for-women'] }}</a>
-      </li>
-      <li class="site-navigation__item site-navigation__item--for-kids">
-        <a class="site-navigation__link" href="{{ route('drugs') }}?category=for-kids">{{ $data['for-kids'] }}</a>
-      </li>
-    </ul>
+      <ul class="site-navigation">
+        <li class="site-navigation__item site-navigation__item--for-women">
+          <a class="site-navigation__link" href="{{ route('drugs') }}?category=for-women">{{ $data['for-women'] }}</a>
+        </li>
+        <li class="site-navigation__item site-navigation__item--for-kids">
+          <a class="site-navigation__link" href="{{ route('drugs') }}?category=for-kids">{{ $data['for-kids'] }}</a>
+        </li>
+      </ul>
+    </div>
 
     <section class="about">
-      <h2 class="visually-hidden">О нас</h2>
+      <div class="container">
+        <h2 class="visually-hidden">О нас</h2>
 
-      <b class="slogan">{{ $data['slogan'] }}</b>
-      <p class="about__text">{{ $data['about-text'] }}</p>
+        <b class="slogan">{{ $data['slogan'] }}</b>
+        <p class="about__text">{{ $data['about-text'] }}</p>
+      </div>
     </section>
 
-    <section class="foundation">
+    <section class="container foundation">
       <h2 class="title title--home">{{ $data['foundation-title'] }}</h2>
 
       <ul class="foundation-list">
@@ -41,7 +45,7 @@
       </ul>
     </section>
 
-    <section class="value">
+    <section class="container value">
       <h2 class="title title--home">{{ $data['value-title'] }}</h2>
 
       <ul class="values-list">
@@ -65,12 +69,14 @@
     </section>
 
     <section class="carrier">
-      <h2 class="title">{{ $data['carrier-title'] }}</h2>
-      <p class="carrier__text">{{ $data['carrier-text'] }}</p>
-      <a class="button carrier__join-link" href="#join">{{ $data['join-us'] }}</a>
+      <div class="container">
+        <h2 class="title">{{ $data['carrier-title'] }}</h2>
+        <p class="carrier__text">{{ $data['carrier-text'] }}</p>
+        <a class="button carrier__join-link" href="#join">{{ $data['join-us'] }}</a>
+      </div>
     </section>
 
-    <section class="drugs">
+    <section class="container drugs">
       <h2 class="title title--home">{{ $data['drugs-title'] }}</h2>
 
       <ul class="drugs-list">
@@ -89,7 +95,7 @@
       </ul>
     </section>
 
-    <section class="benefits">
+    <section class="container benefits">
       <h2 class="title title--home">{{ $data['benefits-title'] }}</h2>
 
       <ul class="benefits-list">
