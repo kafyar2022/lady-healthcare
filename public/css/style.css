@@ -718,10 +718,13 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 420px;
   color: #fff;
   width: 330px;
   margin: 0;
+}
+
+.main-footer__main-logo {
+  margin-bottom: 32px;
 }
 
 .footer-contacts__term {
@@ -742,6 +745,10 @@ p {
   cursor: pointer;
 }
 
+.main-footer .container {
+  padding: 64px;
+}
+
 .map {
   display: block;
   width: 50vw;
@@ -750,6 +757,7 @@ p {
   top: 0;
   height: calc(100% - 120px);
   background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1 !important;
 }
 
 .copyright {
@@ -1513,6 +1521,10 @@ input:checked+.filter-form__label--checkbox {
 @media screen and (max-width: 1399px) {
   .container {
     max-width: 860px;
+  }
+
+  .main-footer .container {
+    padding: 0;
   }
 
   .main-header__container {

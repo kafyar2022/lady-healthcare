@@ -19,3 +19,4 @@
   </div>
   <p class="copyright">{{ $mainTexts['copyright'] }}</p>
 </footer>
+
