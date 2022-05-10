@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CarrierController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DrugsController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -35,7 +36,7 @@ Route::group(['middleware' => ['AuthCheck']], function () {
   Route::get('/auth/login', [AuthController::class, 'login'])->name('auth.login');
 
   Route::group(['middleware' => ['AdminCheck'], 'prefix' => 'dashboard'], function () {
-    Route::get('/', [HomeController::class, ''])->name('dashboard.index');
+    Route::get('/', [HomeController::class, 'index'])->name('dashboard');
     // other dashboard routes
   });
 });

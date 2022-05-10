@@ -18,10 +18,10 @@
     </div>
 
     <section class="about">
-      <div class="container">
+      <div class="container about__container">
         <h2 class="visually-hidden">О нас</h2>
 
-        <b class="slogan">{{ $data['slogan'] }}</b>
+        <p class="slogan">{{ $data['slogan'] }}</p>
         <p class="about__text">{{ $data['about-text'] }}</p>
       </div>
     </section>
@@ -108,10 +108,6 @@
       </ul>
     </section>
   </main>
-@endsection
-
-@section('carrier')
-  @include('layouts.carrier')
 @endsection
 
 @section('script')

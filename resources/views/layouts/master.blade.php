@@ -16,6 +16,9 @@
   <link rel="stylesheet" href="{{ asset('leaflet/leaflet.css') }}">
   <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  @if (session()->has('loggedUser'))
+    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+  @endif
 
   <link rel="icon" href="{{ asset('favicon.ico') }}">
   <link rel="icon" href="{{ asset('img/favicons/icon.svg') }}" type="image/svg+xml">
@@ -30,12 +33,18 @@
 
   @include('layouts.footer')
 
-  @yield('carrier')
+  @if ($route == 'home' || $route == 'dashboard')
+    @include('layouts.carrier')
+  @endif
 
   <script src="{{ asset('glide/glide.min.js') }}"></script>
   <script src="{{ asset('leaflet/leaflet.js') }}"></script>
   <script src="{{ asset('pristine/pristine.min.js') }}"></script>
   @yield('script')
+  @if (session()->has('loggedUser'))
+    @include('layouts.dashboard')
+    <script src="{{ asset('js/dashboard/main.js') }}"></script>
+  @endif
 </body>
 
 </html>

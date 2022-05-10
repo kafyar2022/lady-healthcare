@@ -16,11 +16,11 @@ class AuthController extends Controller
   public function check(Request $request)
   {
     $request->validate([
-      'login' => 'required|min:3',
-      'password' => 'required|min:4'
+      'login' => 'required',
+      'password' => 'required',
     ]);
 
-    $user = User::where('trashed', false)->where('login', '=', $request->login)->first();
+    $user = User::where('login', '=', $request->login)->first();
 
     if (!$user) {
       return back()->with('fail', 'Мы не узнаем ваш адрес для входа');
