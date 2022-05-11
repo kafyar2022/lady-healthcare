@@ -5,6 +5,7 @@ use App\Http\Controllers\CarrierController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DrugsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TextsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,7 +37,12 @@ Route::group(['middleware' => ['AuthCheck']], function () {
   Route::get('/auth/login', [AuthController::class, 'login'])->name('auth.login');
 
   Route::group(['middleware' => ['AdminCheck'], 'prefix' => 'dashboard'], function () {
-    Route::get('/', [HomeController::class, 'index'])->name('dashboard');
-    // other dashboard routes
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/drugs', [DashboardController::class, 'drugs'])->name('dashboard.drugs');
+    Route::get('/carrier', [DashboardController::class, 'carrier'])->name('dashboard.carrier');
+    Route::get('/banners', [DashboardController::class, 'banners'])->name('dashboard.banners');
+
+    Route::post('/text-update', [TextsController::class, 'update']);
+    Route::post('/map-update', [TextsController::class, 'updateMap']);
   });
 });

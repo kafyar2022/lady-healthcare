@@ -1,0 +1,135 @@
+.page-body {
+  margin-left: 320px;
+}
+
+.dashboard {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  background-color: #3c424e;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.dashboard::-webkit-scrollbar {
+  width: 2px;
+}
+
+.dashboard::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.dashboard::-webkit-scrollbar-thumb {
+  background-color: #3c424e;
+}
+
+.dashboard__title {
+  position: sticky;
+  top: 0;
+  background-color: #3c424e;
+  margin: 0;
+  padding: 10px 20px;
+  font-weight: 400;
+  color: #fff;
+  cursor: pointer;
+}
+
+.dashboard-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+
+.dashboard-list__item:not(:last-child) {
+  margin-bottom: 1px;
+}
+
+.dashboard-list__link {
+  display: flex;
+  text-decoration: none;
+  background-color: #dadada;
+  padding: 8px 16px;
+  min-width: 144px;
+}
+
+.dashboard-list__link:hover {
+  background-color: #f0f0ea;
+}
+
+.dashboard-list__link--current::after {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-image: url("../img/current.svg");
+  background-position: center;
+  background-size: contain;
+  margin-left: 16px;
+  background-repeat: no-repeat;
+}
+
+.text-form {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.text-form__element {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-endcounter;
+}
+
+.text-form__label {
+  color: #dadada;
+}
+
+.text-form__field {
+  width: 289px;
+  min-width: 289px;
+  max-width: 289px;
+  min-height: max-content;
+  background-color: #dadada;
+  border: none;
+  padding: 4px;
+  margin-bottom: 8px;
+}
+
+.popup-btn {
+  display: block;
+  padding: 0;
+  border: none;
+  width: 20px;
+  height: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.popup-btn--save {
+  margin-right: 8px;
+  margin-left: auto;
+  background-image: url("../img/icon-done.svg");
+}
+
+.popup-btn--reset {
+  background-image: url("../img/reset.svg");
+}
+
+.popup-btn--close {
+  position: absolute;
+  right: 0;
+  top: -14px;
+  background-image: url("../img/popup-close.svg");
+}

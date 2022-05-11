@@ -47,6 +47,21 @@ class TextsSeeder extends Seeder
 Все права защищены',
       ),
       array(
+        'page' => null,
+        'caption' => 'map-zoom-level',
+        'text' => '13',
+      ),
+      array(
+        'page' => null,
+        'caption' => 'map-lat',
+        'text' => '38.57424',
+      ),
+      array(
+        'page' => null,
+        'caption' => 'map-lng',
+        'text' => '68.78639',
+      ),
+      array(
         'page' => 'home',
         'caption' => 'for-women',
         'text' => 'Для женщин',

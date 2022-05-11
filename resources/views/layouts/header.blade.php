@@ -7,8 +7,8 @@
     <section class="contacts-card">
       <h2 class="visually-hidden">Контакты</h2>
 
-      <a class="contact-link contacts-card__email" href="mailto:{{ $mainTexts['company-email'] }}">{{ $mainTexts['company-email'] }}</a> <br>
-      <a class="contact-link contacts-card__phone" href="tel:{{ str_replace([' ', '(', ')', '-'], '', $mainTexts['company-phone']) }}">{{ $mainTexts['company-phone'] }}</a>
+      <a class="contact-link contacts-card__email" href="mailto:{{ $mainTexts['company-email'] }}" data-type="text" data-title="Электронная почта" data-id="{{ $mainTexts['company-email-id'] }}">{{ $mainTexts['company-email'] }}</a> <br>
+      <a class="contact-link contacts-card__phone" href="tel:{{ str_replace([' ', '(', ')', '-'], '', $mainTexts['company-phone']) }}" data-type="text" data-title="Контактные номера" data-id="{{ $mainTexts['company-phone-id'] }}">{{ $mainTexts['company-phone'] }}</a>
 
       <ul class="social-links">
         @foreach ($socialLinks as $social)

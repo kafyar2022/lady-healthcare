@@ -17,6 +17,7 @@ class Helper
 
     foreach ($texts as $text) {
       $globalTexts[$text->caption] = $text->text;
+      $globalTexts[$text->caption . '-id'] = $text->id;
     }
 
     return $globalTexts;
@@ -28,6 +29,7 @@ class Helper
 
     foreach ($texts as $text) {
       $pageTexts[$text->caption] = $text->text;
+      $pageTexts[$text->caption . '-id'] = $text->id;
     }
 
     return $pageTexts;

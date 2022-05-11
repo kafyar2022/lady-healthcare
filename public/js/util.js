@@ -7,4 +7,11 @@ const debounce = (callback, timeoutDelay = 500) => {
   };
 }
 
-export { debounce };
+const createElement = (template) => {
+  const newElement = document.createElement('div');
+  newElement.innerHTML = template;
+
+  return newElement.firstElementChild;
+};
+
+export { debounce, createElement };

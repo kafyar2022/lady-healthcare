@@ -8,22 +8,14 @@ const submitApplication = (body, onSuccess) =>
     method: 'post',
     body,
   })
-    .then(() => {
-      onSuccess();
-    })
-    .catch((err) => {
-      console.error(err);
-    })
+    .then(() => onSuccess())
+    .catch((err) => console.error(err))
 
 const getVacancies = (onSuccess) =>
   fetch('/vacancies')
     .then((response) => response.json())
-    .then((vacancies) => {
-      onSuccess(vacancies);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+    .then((vacancies) => onSuccess(vacancies))
+    .catch((err) => console.error(err));
 
 const getDrugsByOption = (options, onSuccess) =>
   fetch(`/drugs/filter?page=${options.page}`, {
@@ -32,11 +24,43 @@ const getDrugsByOption = (options, onSuccess) =>
     body: JSON.stringify(options),
   })
     .then((response) => response.json())
-    .then((response) => {
-      onSuccess(response.template);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+    .then((response) => onSuccess(response.template))
+    .catch((err) => console.error(err));
 
-export { submitApplication, getVacancies, getDrugsByOption };
+const updateText = (body, onSuccess, onFail) =>
+  fetch('/dashboard/text-update', {
+    headers,
+    method: 'post',
+    body,
+  })
+    .then((response) => {
+      if (response.redirected) {
+        onFail();
+      } else {
+        onSuccess();
+      }
+    })
+    .catch((err) => console.log(err));
+
+const updateMap = (body, onSuccess, onFail) =>
+  fetch('/dashboard/map-update', {
+    headers,
+    method: 'post',
+    body,
+  })
+    .then((response) => {
+      if ((response.ok && !response.redirected)) {
+        onSuccess();
+      } else {
+        onFail();
+      }
+    })
+    .catch((err) => console.log(err));
+
+export {
+  submitApplication,
+  getVacancies,
+  getDrugsByOption,
+  updateText,
+  updateMap,
+};

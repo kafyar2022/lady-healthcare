@@ -29,10 +29,10 @@
 
       <ul class="breadcrumbs">
         <li class="breadcrumbs__item">
-          <a class="breadcrumbs__link" href="{{ route('home') }}">{{ $mainTexts['home-link'] }}</a>
+          <a class="breadcrumbs__link" href="{{ route('home') }}" data-type="text" data-title="Ссылка" data-id="{{ $mainTexts['home-link-id'] }}">{{ $mainTexts['home-link'] }}</a>
         </li>
         <li class="breadcrumbs__item">
-          <a class="breadcrumbs__link" href="{{ route('drugs') }}">{{ $mainTexts['drug-link'] }}</a>
+          <a class="breadcrumbs__link" href="{{ route('drugs') }}" data-type="text" data-title="Ссылка" data-id="{{ $mainTexts['drug-link-id'] }}">{{ $mainTexts['drug-link'] }}</a>
         </li>
       </ul>
     </div>
@@ -77,7 +77,7 @@
     </section>
 
     <section class="similar-drugs">
-      <h2 class="title title--product">{{ $data['similar-drugs-title'] }}</h2>
+      <h2 class="title title--product" data-type="text" data-title="Заголовок" data-id="{{ $data['similar-drugs-title-id'] }}">{{ $data['similar-drugs-title'] }}</h2>
 
       <ul class="product-list similar-drugs__product-list">
         @foreach ($data['similar-drugs'] as $drug)

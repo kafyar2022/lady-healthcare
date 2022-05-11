@@ -1,8 +1,13 @@
-const ZOOM_LEVEL = 13;
+import { updateMap } from './api.js';
+import { createElement } from './render.js';
+import { createMapOptionsTemplate } from './templates.js';
+
+const mapEl = document.querySelector('.map');
+const ZOOM_LEVEL = mapEl.dataset.zoom;
 
 const centerCoordinates = {
-  lat: 38.57424,
-  lng: 68.78639,
+  lat: mapEl.dataset.lat,
+  lng: mapEl.dataset.lng,
 };
 
 let map;
@@ -42,4 +47,40 @@ const resetMap = () => {
   mainMarker.setLatLng(centerCoordinates);
 };
 
-export { initMap, resetMap }
+const switchMapEditState = (element) => {
+  mainMarker.dragging.enable();
+  mainMarker.on('moveend', (evt) => {
+    const { lat, lng } = evt.target.getLatLng();
+    if (element.querySelector('.map-form')) {
+      element.querySelector('input[name="zoom"]').value = map.getZoom();
+      element.querySelector('input[name="lat"]').value = lat.toFixed(5);
+      element.querySelector('input[name="lng"]').value = lng.toFixed(5);
+    } else {
+      const mapFormEl = createElement(createMapOptionsTemplate(map.getZoom(), lat.toFixed(5), lng.toFixed(5)));
+      const closeEl = mapFormEl.querySelector('.popup-btn--close');
+
+      closeEl.addEventListener('click', () => {
+        mapFormEl.remove();
+        resetMap();
+      });
+
+      mapFormEl.addEventListener('reset', () => resetMap());
+      mapFormEl.addEventListener('submit', (evt) => {
+        evt.preventDefault();
+        updateMap(
+          new FormData(evt.target),
+          () => evt.target.remove(),
+          () => console.log('fail'),
+        );
+      });
+
+      element.insertAdjacentElement('beforeend', mapFormEl);
+    }
+  });
+}
+
+export {
+  initMap,
+  resetMap,
+  switchMapEditState,
+}

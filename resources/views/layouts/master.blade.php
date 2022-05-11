@@ -43,7 +43,7 @@
   @yield('script')
   @if (session()->has('loggedUser'))
     @include('layouts.dashboard')
-    <script src="{{ asset('js/dashboard/main.js') }}"></script>
+    <script src="{{ asset('js/dashboard/main.js') }}" type="module"></script>
   @endif
 </body>
 

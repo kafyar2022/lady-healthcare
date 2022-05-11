@@ -19,4 +19,36 @@ const createApplicationSuccessPopupTemplate = (name) => `
   </div>
 `;
 
-export { createVacancyTemplate, createApplicationSuccessPopupTemplate };
+const createTextTemplate = (evt) => `
+  <form class="text-form">
+    <input type="hidden" name="text-id" value="${evt.target.dataset.id}">
+    <fieldset class="text-form__element">
+      <legend class="text-form__label">${evt.target.dataset.title ? evt.target.dataset.title : 'Текст'}</legend>
+      <textarea class="text-form__field" name="text" rows="${Math.ceil(evt.target.textContent.length / 32)}" required>${evt.target.textContent}</textarea>
+      <button class="popup-btn popup-btn--save" type="submit" title="Сохранить"></button>
+      <button class="popup-btn popup-btn--reset" type="reset" title="Сбросить"></button>
+    </fieldset>
+    <button class="popup-btn popup-btn--close" type="button" title="Закрыть"></button>
+  </form>
+`;
+
+const createMapOptionsTemplate = (zoom, lat, lng) => `
+  <form class="text-form map-form">
+    <fieldset class="text-form__element">
+      <legend class="text-form__label">Настройки карты</legend>
+      <input class="text-form__field" name="zoom" value="${zoom}" required>
+      <input class="text-form__field" name="lat" value="${lat}" required>
+      <input class="text-form__field" name="lng" value="${lng}" required>
+      <button class="popup-btn popup-btn--save" type="submit" title="Сохранить"></button>
+      <button class="popup-btn popup-btn--reset" type="reset" title="Сбросить"></button>
+    </fieldset>
+    <button class="popup-btn popup-btn--close" type="button" title="Закрыть"></button>
+  </form>
+`;
+
+export {
+  createVacancyTemplate,
+  createApplicationSuccessPopupTemplate,
+  createTextTemplate,
+  createMapOptionsTemplate,
+};

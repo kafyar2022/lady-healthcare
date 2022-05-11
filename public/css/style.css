@@ -310,10 +310,10 @@ p {
   content: "";
   position: absolute;
   top: 0;
-  left: 60vw;
+  left: 60%;
   z-index: -1;
   height: 100%;
-  width: 40vw;
+  width: 40%;
   background-color: var(--primary-dark);
 }
 
@@ -755,7 +755,7 @@ p {
 
 .map {
   display: block;
-  width: 50vw;
+  width: 50%;
   position: absolute;
   left: 50%;
   top: 0;
