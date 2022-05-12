@@ -65,9 +65,8 @@ class DashboardController extends Controller
       $file->move(public_path('img/social-icons'), $fileName);
 
       $path = public_path('img/social-icons/' . $socialLink->icon);
-      if (file_exists($path)) {
-        unlink($path);
-      }
+      file_exists($path) ? unlink($path) : '';
+
       $socialLink->icon = $fileName;
     }
 
@@ -76,6 +75,11 @@ class DashboardController extends Controller
 
   public function destroySocialLink(Request $request)
   {
-    SocialLink::find($request->id)->delete();
+    $socialLink = SocialLink::find($request->id);
+
+    $path = public_path('img/social-icons/' . $socialLink->icon);
+    file_exists($path) ? unlink($path) : '';
+
+    $socialLink->delete();
   }
 }

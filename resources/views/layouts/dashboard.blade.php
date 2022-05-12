@@ -18,34 +18,4 @@
       <a class="dashboard-list__link" href="{{ route('auth.logout') }}">Выход</a>
     </li>
   </ul>
-
-  <form class="dash-form social-links__dash-form" enctype="multipart/form-data">
-    <fieldset class="dash-form__inner">
-      <legend class="dash-form__title">Социальные сети</legend>
-      <div class="dash-form__element">
-        <label class="dash-form__label">
-          Название
-          <input class="dash-form__field" name="title" type="text" required placeholder=". . .">
-        </label>
-      </div>
-      <div class="dash-form__element">
-        <label class="dash-form__label">
-          Ссылка на страницу
-          <input class="dash-form__field" type="text" required placeholder=". . .">
-        </label>
-      </div>
-      <div class="dash-form__element">
-        <label class="dash-form__label">
-          Выберите иконку
-          <div class="dash-form__field">. . .</div>
-          <input class="visually-hidden" type="file" required>
-        </label>
-      </div>
-
-      <div class="dash-form__actions">
-        <button class="popup-btn popup-btn--save" type="submit" title="Сохранить"></button>
-      </div>
-    </fieldset>
-    <button class="popup-btn popup-btn--close" type="button" title="Закрыть"></button>
-  </form>
 </aside>
