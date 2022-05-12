@@ -1,5 +1,6 @@
 import { switchMapEditState } from '../map.js';
-import { initTextEdition } from './text.js';
+import { showSocialLinkSettings } from './social-link.js';
+import { showTextSettings } from './text.js';
 
 const dashboardEl = document.querySelector('.dashboard');
 
@@ -10,7 +11,11 @@ document.addEventListener('contextmenu', (evt) => {
 
   switch (evt.target.dataset.type) {
     case 'text':
-      initTextEdition(dashboardEl, evt);
+      showTextSettings(dashboardEl, evt);
       break;
+
+    case 'social-link':
+      showSocialLinkSettings(dashboardEl, evt);
+      break
   }
 });

@@ -2,7 +2,7 @@ import { updateText } from '../api.js';
 import { createElement } from '../render.js';
 import { createTextTemplate } from '../templates.js';
 
-export const initTextEdition = (element, evt) => {
+export const showTextSettings = (element, evt) => {
   if (element.querySelector(`input[name="text-id"][value="${evt.target.dataset.id}"]`)) {
     return;
   }

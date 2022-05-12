@@ -13,7 +13,7 @@
       <ul class="social-links">
         @foreach ($socialLinks as $social)
           <li class="social-links__item">
-            <a class="social-links__link" href="{{ $social->url }}">{{ $social->title }} <i style="{{ 'background-image: url(../img/social-icons/' . $social->icon . ')' }}"></i></a>
+            <a class="social-links__link" href="{{ $social->url }}" target="_blank" data-type="social-link" data-id="{{ $social->id }}" data-title="{{ $social->title }}" data-icon="{{ $social->icon }}" data-url="{{ $social->url }}">{{ $social->title }} <i style="{{ 'background-image: url(../img/social-icons/' . $social->icon . ')' }}"></i></a>
           </li>
         @endforeach
       </ul>

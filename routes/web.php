@@ -44,5 +44,9 @@ Route::group(['middleware' => ['AuthCheck']], function () {
 
     Route::post('/text-update', [TextsController::class, 'update']);
     Route::post('/map-update', [TextsController::class, 'updateMap']);
+
+    Route::post('insert-social-link', [DashboardController::class, 'insertSocialLink']);
+    Route::post('update-social-link', [DashboardController::class, 'updateSocialLink']);
+    Route::get('destroy-social-link', [DashboardController::class, 'destroySocialLink']);
   });
 });

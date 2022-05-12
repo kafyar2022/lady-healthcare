@@ -75,25 +75,32 @@
   background-repeat: no-repeat;
 }
 
-.text-form {
+.dash-form {
   position: relative;
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 32px;
 }
 
-.text-form__element {
+.dash-form__inner {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-endcounter;
 }
 
-.text-form__label {
+.dash-form__title {
   color: #dadada;
 }
 
-.text-form__field {
+.dash-form__label {
+  color: #dadada;
+  font-size: 13px;
+  display: grid;
+  gap: 4px;
+}
+
+.dash-form__field {
   width: 289px;
   min-width: 289px;
   max-width: 289px;
@@ -101,6 +108,8 @@
   background-color: #dadada;
   border: none;
   padding: 4px;
+  color: #2c2c2c;
+  font-size: 14px;
   margin-bottom: 8px;
 }
 
@@ -117,14 +126,30 @@
   cursor: pointer;
 }
 
-.popup-btn--save {
+.dash-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.dash-form__actions>*:not(:last-of-type) {
   margin-right: 8px;
-  margin-left: auto;
+}
+
+.popup-btn--save {
   background-image: url("../img/icon-done.svg");
 }
 
 .popup-btn--reset {
   background-image: url("../img/reset.svg");
+}
+
+.popup-btn--insert {
+  background-image: url("../img/add.svg");
+}
+
+.popup-btn--destroy {
+  background-image: url("../img/delete.svg");
 }
 
 .popup-btn--close {

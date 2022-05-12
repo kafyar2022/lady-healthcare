@@ -57,10 +57,54 @@ const updateMap = (body, onSuccess, onFail) =>
     })
     .catch((err) => console.log(err));
 
+const insertNewSocialLink = (body, onSuccess, onFail) =>
+  fetch('/dashboard/insert-social-link', {
+    headers,
+    method: 'post',
+    body,
+  })
+    .then((response) => {
+      if ((response.ok && !response.redirected)) {
+        onSuccess();
+      } else {
+        onFail();
+      }
+    })
+    .catch((err) => console.log(err));
+
+const updateSocialLink = (body, onSuccess, onFail) =>
+  fetch('/dashboard/update-social-link', {
+    headers,
+    method: 'post',
+    body,
+  })
+    .then((response) => {
+      if ((response.ok && !response.redirected)) {
+        onSuccess();
+      } else {
+        onFail();
+      }
+    })
+    .catch((err) => console.log(err));
+
+const destroySocialLink = (id, onSuccess, onFail) =>
+  fetch(`/dashboard/destroy-social-link?id=${id}`)
+    .then((response) => {
+      if ((response.ok && !response.redirected)) {
+        onSuccess();
+      } else {
+        onFail();
+      }
+    })
+    .catch((err) => console.log(err));
+
 export {
   submitApplication,
   getVacancies,
   getDrugsByOption,
   updateText,
   updateMap,
+  insertNewSocialLink,
+  updateSocialLink,
+  destroySocialLink,
 };

@@ -219,6 +219,7 @@ p {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
+  pointer-events: none;
 }
 
 /* site navigation */
