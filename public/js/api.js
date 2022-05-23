@@ -98,6 +98,59 @@ const destroySocialLink = (id, onSuccess, onFail) =>
     })
     .catch((err) => console.log(err));
 
+const getDrugEditData = (id, onSuccess) =>
+  fetch(`/dashboard/drug-edit?id=${id}`)
+    .then((response) => response.json())
+    .then((response) => onSuccess(response))
+    .catch((err) => console.log(err));
+
+const storeDrug = (body, onSuccess, onFail) =>
+  fetch('/dashboard/drug-store', {
+    headers,
+    method: 'post',
+    body,
+  })
+    .then((response) => {
+      if (response.ok && !response.redirected) {
+        onSuccess();
+      } else {
+        onFail();
+      }
+    })
+    .catch((err) => console.error(err));
+
+const updateDrug = (body, onSuccess, onFail) =>
+  fetch('/dashboard/drug-update', {
+    headers,
+    method: 'post',
+    body,
+  })
+    .then((response) => {
+      if (response.ok && !response.redirected) {
+        onSuccess();
+      } else {
+        onFail();
+      }
+    })
+    .catch((err) => console.error(err));
+
+const getDrugInsertTemplate = (onSuccess) =>
+  fetch('/dashboard/drug-create')
+    .then((response) => response.json())
+    .then((data) => onSuccess(data.template))
+    .catch((err) => console.error(err));
+
+const destroyDrug = (id, onSuccess, onFail) =>
+  fetch(`/dashboard/drug-destroy?id=${id}`)
+    .then((response) => {
+      if (response.ok && !response.redirected) {
+        onSuccess();
+      } else {
+        onFail();
+      }
+    })
+    .catch((err) => console.error(err));
+
 export {
   submitApplication,
   getVacancies,
@@ -107,4 +160,9 @@ export {
   insertNewSocialLink,
   updateSocialLink,
   destroySocialLink,
+  getDrugEditData,
+  storeDrug,
+  updateDrug,
+  destroyDrug,
+  getDrugInsertTemplate,
 };

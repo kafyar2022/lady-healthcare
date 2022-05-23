@@ -34,5 +34,6 @@ export const showTextSettings = (element, evt) => {
     );
   });
 
-  element.insertAdjacentElement('beforeend', newFormEl);
+  element.querySelector('.dashboard-list')
+    .insertAdjacentElement('afterend', newFormEl);
 };

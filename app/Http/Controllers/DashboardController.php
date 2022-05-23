@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
+use App\Models\Banner;
+use App\Models\Direction;
+use App\Models\Drug;
 use App\Models\SocialLink;
-use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -15,7 +18,15 @@ class DashboardController extends Controller
 
   public function drugs()
   {
-    return view('dashboard.pages.drugs');
+    $data = Helper::getPageTexts('drugs');
+
+    $data['banners'] = Banner::get();
+
+    $data['drugs'] = Drug::select('id', 'slug', 'prescription', 'img', 'title', 'description', 'icon', 'direction_id', 'category')->latest()->paginate(8);
+
+    $data['directions'] = Direction::get();
+
+    return view('.dashboard.pages.drugs', compact('data'));
   }
 
   public function carrier()

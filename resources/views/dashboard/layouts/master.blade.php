@@ -26,8 +26,10 @@
 
   @yield('content')
 
+  <script src="{{ asset('leaflet/leaflet.js') }}"></script>
   <script src="{{ asset('pristine/pristine.min.js') }}"></script>
   <script src="{{ asset('js/dashboard/main.js') }}" type="module"></script>
+  @yield('script')
 </body>
 
 </html>

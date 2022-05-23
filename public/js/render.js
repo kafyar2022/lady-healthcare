@@ -30,5 +30,13 @@ const render = (component, container, place = RenderPosition.BEFOREEND) => {
       break;
   }
 };
+const replace = (newElement, oldElement) => {
+  const parent = oldElement.parentElement;
+  if (parent === null) {
+    throw new Error('Parent element doesn\'t exist');
+  }
 
-export {RenderPosition, createElement, render};
+  parent.replaceChild(newElement, oldElement);
+};
+
+export {RenderPosition, createElement, render, replace};

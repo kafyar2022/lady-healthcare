@@ -59,7 +59,8 @@ export const showSocialLinkSettings = (element, evt) => {
         });
 
         socialLinkListEl.insertAdjacentElement('beforeend', newItemEl);
-        element.insertAdjacentElement('beforeend', insertFormEl);
+        element.querySelector('.dashboard-list')
+          .insertAdjacentElement('afterend', insertFormEl);
 
         insertFormEl.addEventListener('submit', (e) => {
           e.preventDefault();
@@ -83,6 +84,7 @@ export const showSocialLinkSettings = (element, evt) => {
     });
 
 
-    element.insertAdjacentElement('beforeend', updateFormEl);
+    element.querySelector('.dashboard-list')
+      .insertAdjacentElement('afterend', updateFormEl);
   }
 };

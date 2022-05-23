@@ -45,8 +45,14 @@ Route::group(['middleware' => ['AuthCheck']], function () {
     Route::post('/text-update', [TextsController::class, 'update']);
     Route::post('/map-update', [TextsController::class, 'updateMap']);
 
-    Route::post('insert-social-link', [DashboardController::class, 'insertSocialLink']);
-    Route::post('update-social-link', [DashboardController::class, 'updateSocialLink']);
-    Route::get('destroy-social-link', [DashboardController::class, 'destroySocialLink']);
+    Route::post('/insert-social-link', [DashboardController::class, 'insertSocialLink']);
+    Route::post('/update-social-link', [DashboardController::class, 'updateSocialLink']);
+    Route::get('/destroy-social-link', [DashboardController::class, 'destroySocialLink']);
+
+    Route::get('/drug-create', [DrugsController::class, 'createDrug']);
+    Route::post('/drug-store', [DrugsController::class, 'storeDrug']);
+    Route::get('/drug-edit', [DrugsController::class, 'editDrug']);
+    Route::post('/drug-update', [DrugsController::class, 'updateDrug']);
+    Route::get('/drug-destroy', [DrugsController::class, 'destroyDrug']);
   });
 });

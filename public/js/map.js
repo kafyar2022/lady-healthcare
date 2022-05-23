@@ -3,12 +3,19 @@ import { createElement } from './render.js';
 import { createMapOptionsTemplate } from './templates.js';
 
 const mapEl = document.querySelector('.map');
-const ZOOM_LEVEL = mapEl.dataset.zoom;
+
+let zoomLevel = 14;
 
 const centerCoordinates = {
-  lat: mapEl.dataset.lat,
-  lng: mapEl.dataset.lng,
+  lat: 38.57424,
+  lng: 68.78639,
 };
+
+if (mapEl) {
+  zoomLevel = mapEl.dataset.zoom;
+  centerCoordinates.lat = mapEl.dataset.lat;
+  centerCoordinates.lng = mapEl.dataset.lng;
+}
 
 let map;
 
@@ -25,7 +32,7 @@ const mainMarker = L.marker(centerCoordinates, {
 
 const initMap = () => {
   map = L.map('map')
-    .setView(centerCoordinates, ZOOM_LEVEL);
+    .setView(centerCoordinates, zoomLevel);
 
   L.tileLayer(
     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -43,7 +50,7 @@ const initMap = () => {
 };
 
 const resetMap = () => {
-  map.setView(centerCoordinates, ZOOM_LEVEL);
+  map.setView(centerCoordinates, zoomLevel);
   mainMarker.setLatLng(centerCoordinates);
 };
 

@@ -1,7 +1,8 @@
-const accordionEl = document.querySelector('.accordion');
-const accordionTermEls = accordionEl.querySelectorAll('dt');
 
 const initAccordion = () => {
+  const accordionEl = document.querySelector('.accordion');
+  const accordionTermEls = accordionEl.querySelectorAll('dt');
+
   accordionEl.addEventListener('click', (evt) => {
     if (evt.target.tagName === 'DT') {
       accordionTermEls.forEach((element) => {

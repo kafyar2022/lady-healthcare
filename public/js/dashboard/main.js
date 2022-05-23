@@ -4,7 +4,9 @@ import { showTextSettings } from './text.js';
 
 const dashboardEl = document.querySelector('.dashboard');
 
-switchMapEditState(dashboardEl)
+if (document.querySelector('.map')) {
+  switchMapEditState(dashboardEl)
+}
 
 document.addEventListener('contextmenu', (evt) => {
   evt.preventDefault();
