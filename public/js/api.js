@@ -151,6 +151,47 @@ const destroyDrug = (id, onSuccess, onFail) =>
     })
     .catch((err) => console.error(err));
 
+const storeBanner = (body, onSuccess, onFail) =>
+  fetch('/dashboard/banners-store', {
+    headers,
+    method: 'post',
+    body,
+  })
+    .then((response) => {
+      if (response.ok && !response.redirected) {
+        onSuccess();
+        return;
+      }
+      onFail();
+    })
+    .catch((err) => console.error(err));
+
+const destroyBanner = (id, onSuccess, onFail) =>
+  fetch(`/dashboard/banners-destroy?id=${id}`)
+    .then((response) => {
+      if (response.ok) {
+        onSuccess();
+        return;
+      }
+      onFail();
+    })
+    .catch((err) => console.error(err));
+
+const updateBanner = (body, onSuccess, onFail) =>
+  fetch('/dashboard/banners-update', {
+    headers,
+    method: 'post',
+    body,
+  })
+    .then((response) => {
+      if (response.ok) {
+        onSuccess();
+        return;
+      }
+      onFail();
+    })
+    .catch((err) => console.error(err));
+
 export {
   submitApplication,
   getVacancies,
@@ -165,4 +206,7 @@ export {
   updateDrug,
   destroyDrug,
   getDrugInsertTemplate,
+  storeBanner,
+  destroyBanner,
+  updateBanner,
 };

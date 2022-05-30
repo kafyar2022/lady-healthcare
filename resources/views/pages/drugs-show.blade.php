@@ -11,7 +11,11 @@
         <ul class="glide__slides">
           @foreach ($data['banners'] as $banner)
             <li class="glide__slide">
-              <div class="container glide__container">{!! $banner->content !!}</div>
+              <div class="container glide__container">
+                <h2 class="glide__title">{{ $banner->title }}</h2>
+                <p class="glide__text">{{ $banner->text }}</p>
+                <a class="button glide__link" href="{{ $banner->url }}" target="_blank">{{ $banner->link }}</a>
+              </div>
               <img class="glide__img" src="{{ asset('files/banners/' . $banner->img) }}" alt="{{ $banner->title }}">
             </li>
           @endforeach

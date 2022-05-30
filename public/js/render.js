@@ -37,6 +37,7 @@ const replace = (newElement, oldElement) => {
   }
 
   parent.replaceChild(newElement, oldElement);
+  oldElement.remove();
 };
 
 export {RenderPosition, createElement, render, replace};

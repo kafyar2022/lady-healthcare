@@ -12,9 +12,6 @@
       <a class="dashboard-list__link {{ $route === 'dashboard.banners' ? 'dashboard-list__link--current' : '' }}" href="{{ route('dashboard.banners') }}">Баннеры</a>
     </li>
     <li class="dashboard-list__item">
-      <a class="dashboard-list__link {{ $route === 'dashboard.carrier' ? 'dashboard-list__link--current' : '' }}" href="{{ route('dashboard.carrier') }}">Карьера</a>
-    </li>
-    <li class="dashboard-list__item">
       <a class="dashboard-list__link" href="{{ route('auth.logout') }}">Выход</a>
     </li>
   </ul>

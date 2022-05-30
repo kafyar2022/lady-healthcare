@@ -1,4 +1,4 @@
-<header class="container main-header">
+<header class="container main-header {{ $route == 'dashboard.banners' ? 'events-off' : '' }}">
   <div class="main-header__container">
     <a class="main-logo" href="{{ route('home') }}">
       <img src="{{ asset('img/main-logo.svg') }}" width="169" height="64" alt="Логотип компании Lady Healthcare">

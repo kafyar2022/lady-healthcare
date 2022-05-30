@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BannersController;
 use App\Http\Controllers\CarrierController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DrugsController;
@@ -39,7 +40,6 @@ Route::group(['middleware' => ['AuthCheck']], function () {
   Route::group(['middleware' => ['AdminCheck'], 'prefix' => 'dashboard'], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/drugs', [DashboardController::class, 'drugs'])->name('dashboard.drugs');
-    Route::get('/carrier', [DashboardController::class, 'carrier'])->name('dashboard.carrier');
     Route::get('/banners', [DashboardController::class, 'banners'])->name('dashboard.banners');
 
     Route::post('/text-update', [TextsController::class, 'update']);
@@ -54,5 +54,9 @@ Route::group(['middleware' => ['AuthCheck']], function () {
     Route::get('/drug-edit', [DrugsController::class, 'editDrug']);
     Route::post('/drug-update', [DrugsController::class, 'updateDrug']);
     Route::get('/drug-destroy', [DrugsController::class, 'destroyDrug']);
+
+    Route::post('/banners-store', [BannersController::class, 'store']);
+    Route::get('/banners-destroy', [BannersController::class, 'destroy']);
+    Route::post('/banners-update', [BannersController::class, 'update']);
   });
 });

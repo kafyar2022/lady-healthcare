@@ -13,6 +13,7 @@
 
   <title>Панель управления | Lady Healthcare</title>
 
+  <link rel="stylesheet" href="{{ asset('glide/glide.css') }}">
   <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
@@ -26,6 +27,7 @@
 
   @yield('content')
 
+  <script src="{{ asset('glide/glide.min.js') }}"></script>
   <script src="{{ asset('leaflet/leaflet.js') }}"></script>
   <script src="{{ asset('pristine/pristine.min.js') }}"></script>
   <script src="{{ asset('js/dashboard/main.js') }}" type="module"></script>

@@ -126,6 +126,107 @@ const createSocialLinkInsertTemplate = () => `
   </form>
 `;
 
+const createBannerEditForm = (banner) => `
+  <form class="form banners__form" enctype="multipart/form-data">
+    <fieldset class="form__group">
+      <legend class="form__title">${banner.title}</legend>
+      <input type="hidden" name="banner_id" value="${banner.id}">
+      <p class="form__element">
+        <label class="form__label form__label--file">
+          Фото
+          <span class="form__field form__field--img">${banner.img}</span>
+          <input class="visually-hidden" name="img" type="file">
+        </label>
+      </p>
+      <p class="form__element">
+        <label class="form__label">
+          Заголовок
+          <input class="form__field" name="title" type="text" value="${banner.title}" required>
+        </label>
+      </p>
+      <p class="form__element">
+        <label class="form_label">
+          Текс, описание, объявление...
+          <textarea class="form__field form__field--text" name="text" cols="30" rows="10">${banner.text ?? ''}</textarea>
+        </label>
+      </p>
+      <p class="form__element">
+        <label class="form__label">
+          Ссылка (не объязательно)
+          <input class="form__field" name="url" type="text" value="${banner.url ?? ''}">
+        </label>
+      </p>
+      <p class="form__element">
+        <label class="form__label">
+          Текст ссылки (не объязательно)
+          <input class="form__field" name="link" type="text" value="${banner.link ?? ''}">
+        </label>
+      </p>
+      <div class="form__actions">
+        <button class="popup-btn popup-btn--save" type="submit" title="Сохранить"></button>
+        <button class="popup-btn popup-btn--reset" type="reset" title="Сбросить"></button>
+        <button class="popup-btn popup-btn--destroy" type="button" data-id="${banner.id}" title="Удалить"></button>
+        <button class="popup-btn popup-btn--insert" type="button" title="Дабавить"></button>
+      </div>
+    </fieldset>
+    <button class="popup-btn popup-btn--close" type="button" title="Закрыть"></button>
+  </form>
+`;
+
+const createBannerInsertForm = () => `
+  <form class="form banners__form banners__form--insert" enctype="multipart/form-data">
+    <fieldset class="form__group">
+      <legend class="form__title">Баннер (Редактирование)</legend>
+      <p class="form__element">
+        <label class="form__label form__label--file">
+          Фото
+          <span class="form__field form__field--img">Файл не выбран</span>
+          <input class="visually-hidden" name="img" type="file" required>
+        </label>
+      </p>
+      <p class="form__element">
+        <label class="form__label">
+          Заголовок
+          <input class="form__field" name="title" type="text" placeholder="Нео Витес для иммунитета" required>
+        </label>
+      </p>
+      <p class="form__element">
+        <label class="form_label">
+          Текс, описание, объявление...
+          <textarea class="form__field form__field--text" name="text" cols="30" rows="10" placeholder="Текс, описание, объявление..."></textarea>
+        </label>
+      </p>
+      <p class="form__element">
+        <label class="form__label">
+          Ссылка (не объязательно)
+          <input class="form__field" name="url" type="text" placeholder="https://example.com">
+        </label>
+      </p>
+      <p class="form__element">
+        <label class="form__label">
+          Текст ссылки (не объязательно)
+          <input class="form__field" name="link" type="text" placeholder="К препарату">
+        </label>
+      </p>
+      <div class="form__actions">
+        <button class="popup-btn popup-btn--save" type="submit" title="Сохранить"></button>
+      </div>
+    </fieldset>
+    <button class="popup-btn popup-btn--close" type="button" title="Закрыть"></button>
+  </form>
+`;
+
+const createBannerTemplate = () => `
+  <li class="glide__slide glide__slide--active">
+    <div class="container glide__container">
+      <h2 class="glide__title"></h2>
+      <p class="glide__text"></p>
+      <a class="button glide__link" target="_blank"></a>
+    </div>
+    <img class="glide__img">
+  </li>
+`;
+
 export {
   createVacancyTemplate,
   createApplicationSuccessPopupTemplate,
@@ -134,4 +235,7 @@ export {
   createSocialLinkUpdateTemplate,
   createSocialLinkEmptyTemplate,
   createSocialLinkInsertTemplate,
+  createBannerEditForm,
+  createBannerInsertForm,
+  createBannerTemplate,
 };

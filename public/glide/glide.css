@@ -14,19 +14,16 @@
   padding-left: 100px;
 }
 
-.glide__title {
-  font-size: 56px;
-  font-weight: 700;
-  color: #fff;
-  text-transform: uppercase;
-  margin: 0;
-}
 
 .glide__link {
   width: 260px;
 }
 
-.glide__subtitle {
+.glide__link:empty {
+  display: none;
+}
+
+.glide__title {
   color: #fff;
   text-transform: uppercase;
   font-size: 24px;
@@ -34,9 +31,21 @@
   margin-top: 0;
 }
 
+.glide__title::first-line {
+  font-size: 56px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  margin: 0;
+}
+
 .glide__text {
   margin-bottom: 32px;
   margin-top: 0;
+}
+
+.glide__text:empty {
+  display: none;
 }
 
 .glide__img {

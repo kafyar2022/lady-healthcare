@@ -36,7 +36,9 @@ class DashboardController extends Controller
 
   public function banners()
   {
-    return view('dashboard.pages.banners');
+    $banners = Banner::latest()->get();
+
+    return view('dashboard.pages.banners', compact('banners'));
   }
 
   public function insertSocialLink(Request $request)
