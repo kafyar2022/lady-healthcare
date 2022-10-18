@@ -54,7 +54,7 @@
       <div class="product-inner product-inner--right">
         <span class="product__composition">{{ $data->product->min_composition }}</span>
         <span class="product__composition">{{ $data->product->max_composition }}</span>
-        <span class="product__icon" style="{{ $data->product->icon ? 'background-image: url(../img/social-icons/' . $data->product->icon . ')' : '' }}"></span>
+        <span class="product__icon">{!! $data->product->releaseForm->svg !!}</span>
         <span class="product__prescription">{{ $data->product->prescription }}</span>
         <p class="product__description">{{ $data->product->description }}</p>
         <p class="product__filter">{{ $data->product->category === 'for-kids' ? 'Для женщин' : 'Для детей' }} / {{ $data->product->direction->title }}</p>

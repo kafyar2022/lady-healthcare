@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
       // TextsSeeder::class,
       // SocialLinksSeeder::class,
       // VacanciesSeeder::class,
+      ReleaseFormSeeder::class,
       DrugsSeeder::class,
       DirectionsSeeder::class,
       BannersSeeder::class,

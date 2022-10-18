@@ -16,20 +16,21 @@ class CreateDrugsTable extends Migration
     Schema::create('drugs', function (Blueprint $table) {
       $table->id();
       $table->string('title');
+      $table->string('slug');
       $table->string('category');
       $table->string('prescription');
       $table->string('direction_id');
+      $table->string('release_form_id');
       $table->string('min_composition')->nullable();
       $table->string('max_composition')->nullable();
+      $table->string('url')->nullable();
       $table->string('img')->default('muffin-grey.svg');
-      $table->string('icon')->nullable();
-      $table->string('slug');
+      $table->string('img_thumb')->default('muffin-grey.svg');
+      $table->string('instruction')->nullable();
       $table->text('description')->nullable();
       $table->text('compound')->nullable();
       $table->text('indications')->nullable();
       $table->text('mode')->nullable();
-      $table->string('instruction')->nullable();
-      $table->string('url')->default('#');
       $table->timestamps();
     });
   }

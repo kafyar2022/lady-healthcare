@@ -27,10 +27,12 @@ class DrugsSeeder extends Seeder
         'slug' => SlugService::createSlug(Drug::class, 'slug', 'Милдрокард'),
         'min_composition' => '2мл',
         'max_composition' => '5мл',
+        'release_form_id' => $faker->numberBetween($min = 1, $max = 12),
         'prescription' => $prescription[$faker->numberBetween($min = 0, $max = 2)],
         'description' => 'Милдрокард обладает стимулирующим действием на центральную нервную систему (ЦНС) — повышение двигательной активности и физической выносливости.',
         'category' => $key % 2 == 0 ? 'for-kids' : 'for-women',
         'img' => 'img/products/mildrokard.png',
+        'img_thumb' => 'img/products/thumbs/mildrokard.png',
         'instruction' => 'files/products/mildrokard.pdf',
         'compound' => '1 капсула содержит:
 3-(2,2,2-Триметилгидразиний)-пропионата дигидрат – 250мг или 500мг.

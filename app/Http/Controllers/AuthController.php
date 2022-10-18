@@ -28,7 +28,7 @@ class AuthController extends Controller
 
     if (Hash::check($request->password, $user->password)) {
       $request->session()->put('loggedUser', $user->id);
-      return redirect(route('dashboard'));
+      return redirect(route('admin'));
     }
 
     else {
@@ -40,7 +40,7 @@ class AuthController extends Controller
   {
     if (session()->has('loggedUser')) {
       session()->pull('loggedUser');
-      return redirect(route('home'));
+      return redirect(route('main'));
     }
   }
 }

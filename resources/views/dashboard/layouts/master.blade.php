@@ -17,20 +17,17 @@
   <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
-  <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
-
   <link rel="icon" href="{{ asset('favicon.ico') }}">
 </head>
 
-<body class="page-body">
-  @include('layouts.dashboard')
+<body class="page__body page__body--admin">
+  @include('dashboard.layouts.dashboard')
 
   @yield('content')
 
   <script src="{{ asset('glide/glide.min.js') }}"></script>
   <script src="{{ asset('leaflet/leaflet.js') }}"></script>
   <script src="{{ asset('pristine/pristine.min.js') }}"></script>
-  <script src="{{ asset('js/dashboard/main.js') }}" type="module"></script>
   @yield('script')
 </body>
 

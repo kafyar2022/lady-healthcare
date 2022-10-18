@@ -31,25 +31,11 @@ Route::post('/auth/check', [AuthController::class, 'check'])->name('auth.check')
 Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
 Route::get('/auth/login', [AuthController::class, 'login'])->name('auth.login');
 
-Route::group(['middleware' => ['AdminCheck'], 'prefix' => 'admin'], function () {
+Route::group(['middleware' => ['AuthCheck'], 'prefix' => 'admin'], function () {
   Route::get('/', [AdminController::class, 'index'])->name('admin');
-  Route::get('/products', [AdminController::class, 'products'])->name('admin.products');
-  Route::get('/banners', [AdminController::class, 'banners'])->name('dashboard.banners');
 
-  Route::post('/text-update', [TextsController::class, 'update']);
-  Route::post('/map-update', [TextsController::class, 'updateMap']);
+  Route::get('/products/{action?}/{product?}', [AdminController::class, 'products'])->name('admin.products');
+  Route::post('/products/{action?}', [AdminController::class, 'productsPost'])->name('products.post');
 
-  Route::post('/insert-social-link', [AdminController::class, 'insertSocialLink']);
-  Route::post('/update-social-link', [AdminController::class, 'updateSocialLink']);
-  Route::get('/destroy-social-link', [AdminController::class, 'destroySocialLink']);
-
-  Route::get('/drug-create', [DrugsController::class, 'createDrug']);
-  Route::post('/drug-store', [DrugsController::class, 'storeDrug']);
-  Route::get('/drug-edit', [DrugsController::class, 'editDrug']);
-  Route::post('/drug-update', [DrugsController::class, 'updateDrug']);
-  Route::get('/drug-destroy', [DrugsController::class, 'destroyDrug']);
-
-  Route::post('/banners-store', [BannersController::class, 'store']);
-  Route::get('/banners-destroy', [BannersController::class, 'destroy']);
-  Route::post('/banners-update', [BannersController::class, 'update']);
+  Route::get('/banners', [AdminController::class, 'banners'])->name('admin.banners');
 });

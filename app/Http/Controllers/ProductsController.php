@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Banner;
 use App\Models\Direction;
 use App\Models\Drug;
+use App\Models\ReleaseForm;
 use Illuminate\Http\Request;
 use stdClass;
 
@@ -16,9 +17,9 @@ class ProductsController extends Controller
     $data->banners = Banner::get();
 
     if ($request->has('category')) {
-      $data->products = Drug::where('category', $request->category)->paginate(8);
+      $data->products = Drug::where('category', $request->category)->latest()->paginate(8);
     } else {
-      $data->products = Drug::paginate(8);
+      $data->products = Drug::latest()->paginate(8);
     }
 
     $data->directions = Direction::get();
