@@ -37,5 +37,8 @@ Route::group(['middleware' => ['AuthCheck'], 'prefix' => 'admin'], function () {
   Route::get('/products/{action?}/{product?}', [AdminController::class, 'products'])->name('admin.products');
   Route::post('/products/{action?}', [AdminController::class, 'productsPost'])->name('products.post');
 
+  Route::get('/directions/{action?}/{direction?}', [AdminController::class, 'directions'])->name('admin.directions');
+  Route::post('/directions/{action?}', [AdminController::class, 'directionsPost'])->name('directions.post');
+
   Route::get('/banners', [AdminController::class, 'banners'])->name('admin.banners');
 });

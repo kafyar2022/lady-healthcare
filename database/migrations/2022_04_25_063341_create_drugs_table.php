@@ -19,7 +19,7 @@ class CreateDrugsTable extends Migration
       $table->string('slug');
       $table->string('category');
       $table->string('prescription');
-      $table->string('direction_id');
+      $table->string('direction_id')->nullable();
       $table->string('release_form_id');
       $table->string('min_composition')->nullable();
       $table->string('max_composition')->nullable();

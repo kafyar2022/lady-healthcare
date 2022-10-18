@@ -2526,7 +2526,6 @@ input:checked+.filter-form__label--checkbox {
 .content {
   position: relative;
   min-height: 22px;
-  width: 100%;
 }
 
 .content h1,

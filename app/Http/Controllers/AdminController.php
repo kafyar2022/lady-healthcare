@@ -174,4 +174,57 @@ class AdminController extends Controller
         return back()->with('success', 'Данные успешно сохранена');
     }
   }
+
+  public function directions(Request $request)
+  {
+    $data = new stdClass();
+
+    switch ($request->action) {
+      case 'delete':
+        $direction = Direction::find($request->direction);
+
+        $products = Drug::where('direction_id', $direction->id)->get();
+        foreach ($products as $product) {
+          $product->direction_id = null;
+          $product->update();
+        }
+
+        $direction->delete();
+
+        return back();
+
+      case 'update':
+        $direction = Direction::find($request->id);
+        $direction->title = $request->title;
+        $direction->update();
+
+        return back()->with('success', 'Данные успешно сохранена');
+
+      default:
+        $data->directions = Direction::get();
+
+        return view('dashboard.pages.directions.index', compact('data'));
+    }
+  }
+
+  public function directionsPost(Request $request)
+  {
+    $request->validate(['title' => 'required']);
+
+    switch ($request->action) {
+      case 'store':
+        $direction = new Direction();
+        $direction->title = $request->title;
+        $direction->save();
+
+        return back()->with('success', 'Данные успешно сохранена');
+
+      case 'update':
+        $direction = Direction::find($request->id);
+        $direction->title = $request->title;
+        $direction->update();
+
+        return back()->with('success', 'Данные успешно сохранена');
+    }
+  }
 }

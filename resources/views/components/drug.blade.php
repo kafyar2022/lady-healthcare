@@ -22,7 +22,9 @@
     </div>
     <p class="drug-card__filter">
       {{ $drug->category === 'for-women' ? 'Для женщин' : 'Для детей' }}
-      / {{ $drug->direction->title }}
+      @if ($drug->direction_id)
+        / {{ $drug->direction->title }}
+      @endif
     </p>
   </div>
   <a class="button button--outlined drug-card__link" href="{{ route('products.show', $drug->slug) }}">
