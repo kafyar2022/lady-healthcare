@@ -56,7 +56,9 @@
         <span class="product__composition">{{ $data->product->max_composition }}</span>
         <span class="product__icon">{!! $data->product->releaseForm->svg !!}</span>
         <span class="product__prescription">{{ $data->product->prescription }}</span>
-        <p class="product__description">{{ $data->product->description }}</p>
+        <div class="product__description content">
+          {!! $data->product->description !!}
+        </div>
         <p class="product__filter">{{ $data->product->category === 'for-kids' ? 'Для женщин' : 'Для детей' }} / {{ $data->product->direction->title }}</p>
         @if ($data->product->instruction)
           <a
@@ -72,15 +74,15 @@
         <dl class="accordion">
           <div class="accordion__item">
             <dt class="accordion__term accordion__description--hidden">Состав</dt>
-            <dd class="accordion__description">{{ $data->product->compound }}</dd>
+            <dd class="accordion__description">{!! $data->product->compound !!}</dd>
           </div>
           <div class="accordion__item">
             <dt class="accordion__term accordion__description--hidden">Показания к применению</dt>
-            <dd class="accordion__description">{{ $data->product->indications }}</dd>
+            <dd class="accordion__description">{!! $data->product->indications !!}</dd>
           </div>
           <div class="accordion__item">
             <dt class="accordion__term accordion__description--hidden">Способ применения</dt>
-            <dd class="accordion__description">{{ $data->product->mode }}</dd>
+            <dd class="accordion__description">{!! $data->product->mode !!}</dd>
           </div>
         </dl>
       </div>

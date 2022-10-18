@@ -13,6 +13,7 @@
 
   <title>Панель управления | Lady Healthcare</title>
 
+  <link rel="stylesheet" href="{{ asset('simditor/simditor.css') }}">
   <link rel="stylesheet" href="{{ asset('glide/glide.css') }}">
   <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -25,6 +26,11 @@
 
   @yield('content')
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="{{ asset('simditor/module.js') }}"></script>
+  <script src="{{ asset('simditor/hotkeys.js') }}"></script>
+  <script src="{{ asset('simditor/uploader.js') }}"></script>
+  <script src="{{ asset('simditor/simditor.js') }}"></script>
   <script src="{{ asset('glide/glide.min.js') }}"></script>
   <script src="{{ asset('leaflet/leaflet.js') }}"></script>
   <script src="{{ asset('pristine/pristine.min.js') }}"></script>

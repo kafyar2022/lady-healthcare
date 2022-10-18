@@ -1,8 +1,29 @@
 const formEl = document.querySelector('.form-dash');
+const simditors = formEl.querySelectorAll('textarea');
 const imgChooserEl = formEl.querySelector('input[name="img"]');
 const imgPreviewEl = document.querySelector('img');
 const fileChooserEl = formEl.querySelector('input[name="instruction"]');
 const submitEl = document.querySelector('[data-action="submit"]');
+
+simditors.forEach((simditor) => {
+  const simdit = new Simditor({
+    textarea: simditor,
+    toolbar: [
+      'title',
+      'bold',
+      'italic',
+      'underline',
+      'strikethrough',
+      'ol',
+      'ul',
+      'indent',
+      'outdent',
+      'alignment',
+    ]
+  });
+
+  simdit.body[0].classList.add('form-dash__field', 'form-dash__field--text', 'content');
+});
 
 const pristine = window.Pristine(formEl, {
   classTo: 'form-dash__element',

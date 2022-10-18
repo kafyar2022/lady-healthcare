@@ -168,28 +168,28 @@
           readonly>
       </label>
 
-      <label class="form-dash__element" style="grid-column: span 2; grid-row: span 3;">
+      <label class="form-dash__element" style="grid-column: span 2; grid-row: span 4;">
         <span class="form-dash__label">Описание</span>
         <textarea class="form-dash__field" name="description">
           {{ $data->product->description ?? '' }}
         </textarea>
       </label>
 
-      <label class="form-dash__element" style="grid-column: span 2; grid-row: span 3;">
+      <label class="form-dash__element" style="grid-column: span 2; grid-row: span 4;">
         <span class="form-dash__label">Состав</span>
         <textarea class="form-dash__field" name="compound">
           {{ $data->product->compound ?? '' }}
         </textarea>
       </label>
 
-      <label class="form-dash__element" style="grid-column: span 2; grid-row: span 3;">
+      <label class="form-dash__element" style="grid-column: span 2; grid-row: span 4;">
         <span class="form-dash__label">Показания к применению</span>
         <textarea class="form-dash__field" name="indications">
           {{ $data->product->indications ?? '' }}
         </textarea>
       </label>
 
-      <label class="form-dash__element" style="grid-column: span 2; grid-row: span 3;">
+      <label class="form-dash__element" style="grid-column: span 2; grid-row: span 4;">
         <span class="form-dash__label">Способ применения</span>
         <textarea class="form-dash__field" name="mode">
           {{ $data->product->mode ?? '' }}

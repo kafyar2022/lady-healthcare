@@ -17,7 +17,9 @@
       </i>
     </h3>
 
-    <p class="drug-card__description">{{ $drug->description }}</p>
+    <div class="drug-card__description">
+      {!! $drug->description !!}
+    </div>
     <p class="drug-card__filter">
       {{ $drug->category === 'for-women' ? 'Для женщин' : 'Для детей' }}
       / {{ $drug->direction->title }}

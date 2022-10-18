@@ -2391,7 +2391,7 @@ input:checked+.filter-form__label--checkbox {
   background-color: #fff;
   border: 1px solid #d9d9d3;
   resize: none;
-  max-height: 188px;
+  max-height: 220px;
   overflow: auto;
 }
 
@@ -2404,7 +2404,7 @@ input:checked+.filter-form__label--checkbox {
 }
 
 .form-dash__field--text {
-  max-height: 10000px;
+  min-height: 220px !important;
 }
 
 .form-dash__field--select {
@@ -2502,6 +2502,7 @@ input:checked+.filter-form__label--checkbox {
 .modal--hidden {
   display: none;
 }
+
 .admin-link {
   position: fixed;
   z-index: 99;
@@ -2520,4 +2521,48 @@ input:checked+.filter-form__label--checkbox {
 .admin-link:hover {
   background-color: #ed2e38;
   color: #3c324c;
+}
+
+.content {
+  position: relative;
+  min-height: 22px;
+  width: 100%;
+}
+
+.content h1,
+.content h2,
+.content h3 {
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.content h1:last-of-type,
+.content h2:last-of-type,
+.content h3:last-of-type {
+  margin-bottom: 8px;
+}
+
+.content p {
+  margin: 0;
+}
+
+.content p:empty {
+  height: 22px;
+}
+
+.content table {
+  border-collapse: collapse;
+}
+
+.content th,
+.content td {
+  padding: 4px 8px;
+  min-width: 16px;
+  border: 1px solid;
+}
+
+.action--cancel:hover+.content {
+  outline: 1px solid red !important;
 }
