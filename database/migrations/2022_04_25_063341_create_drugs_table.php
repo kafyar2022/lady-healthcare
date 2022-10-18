@@ -21,8 +21,6 @@ class CreateDrugsTable extends Migration
       $table->string('prescription');
       $table->string('direction_id')->nullable();
       $table->string('release_form_id');
-      $table->string('min_composition')->nullable();
-      $table->string('max_composition')->nullable();
       $table->string('url')->nullable();
       $table->string('img')->default('muffin-grey.svg');
       $table->string('img_thumb')->default('muffin-grey.svg');

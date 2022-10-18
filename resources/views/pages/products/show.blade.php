@@ -52,8 +52,6 @@
         <img class="product__img" src="{{ asset($data->product->img) }}" alt="{{ $data->product->title }}">
       </div>
       <div class="product-inner product-inner--right">
-        <span class="product__composition">{{ $data->product->min_composition }}</span>
-        <span class="product__composition">{{ $data->product->max_composition }}</span>
         <span class="product__icon">{!! $data->product->releaseForm->svg !!}</span>
         <span class="product__prescription">{{ $data->product->prescription }}</span>
         <div class="product__description content">

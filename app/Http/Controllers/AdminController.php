@@ -74,8 +74,6 @@ class AdminController extends Controller
         $product->prescription = $request->prescription;
         $product->direction_id = $request->direction_id;
         $product->release_form_id = $request->release_form_id;
-        $product->min_composition = $request->min_composition;
-        $product->max_composition = $request->max_composition;
         $product->description = $request->description;
         $product->compound = $request->compound;
         $product->indications = $request->indications;
@@ -121,8 +119,6 @@ class AdminController extends Controller
         $product->prescription = $request->prescription;
         $product->direction_id = $request->direction_id;
         $product->release_form_id = $request->release_form_id;
-        $product->min_composition = $request->min_composition;
-        $product->max_composition = $request->max_composition;
         $product->description = $request->description;
         $product->compound = $request->compound;
         $product->indications = $request->indications;

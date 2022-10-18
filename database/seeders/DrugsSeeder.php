@@ -25,8 +25,6 @@ class DrugsSeeder extends Seeder
         'direction_id' => $faker->numberBetween($min = 1, $max = 11),
         'title' => 'Милдрокард',
         'slug' => SlugService::createSlug(Drug::class, 'slug', 'Милдрокард'),
-        'min_composition' => '2мл',
-        'max_composition' => '5мл',
         'release_form_id' => $faker->numberBetween($min = 1, $max = 12),
         'prescription' => $prescription[$faker->numberBetween($min = 0, $max = 2)],
         'description' => 'Милдрокард обладает стимулирующим действием на центральную нервную систему (ЦНС) — повышение двигательной активности и физической выносливости.',

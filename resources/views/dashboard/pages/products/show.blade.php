@@ -62,8 +62,6 @@
           data-pristine-required-message="Объязательное поле">
       </label>
 
-      <div style="grid-column: span 2"></div>
-
       <label class="form-dash__element">
         <span class="form-dash__label">Категория*</span>
         <select class="form-dash__field form-dash__field--select" name="category">
@@ -125,26 +123,6 @@
           </option>
           @endforeach
         </select>
-      </label>
-
-      <label class="form-dash__element">
-        <span class="form-dash__label">Минимальный состав</span>
-        <input
-          class="form-dash__field"
-          name="min_composition"
-          type="text"
-          value="{{ $data->product->min_composition ?? '' }}"
-          placeholder="2МЛ">
-      </label>
-
-      <label class="form-dash__element">
-        <span class="form-dash__label">Максимальный состав</span>
-        <input
-          class="form-dash__field"
-          name="max_composition"
-          type="text"
-          value="{{ $data->product->max_composition ?? '' }}"
-          placeholder="5МЛ">
       </label>
 
       <label class="form-dash__element">
