@@ -2,20 +2,12 @@ import { updateMap } from './api.js';
 import { createElement } from './render.js';
 import { createMapOptionsTemplate } from './templates.js';
 
-const mapEl = document.querySelector('.map');
-
 let zoomLevel = 14;
 
 const centerCoordinates = {
   lat: 38.57424,
   lng: 68.78639,
 };
-
-if (mapEl) {
-  zoomLevel = mapEl.dataset.zoom;
-  centerCoordinates.lat = mapEl.dataset.lat;
-  centerCoordinates.lng = mapEl.dataset.lng;
-}
 
 let map;
 

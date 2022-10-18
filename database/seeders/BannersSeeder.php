@@ -17,7 +17,7 @@ class BannersSeeder extends Seeder
     $banners = array(
       array(
         'id' => 1,
-        'img' => 'img-1.png',
+        'img' => 'img/banners/img-1.png',
         'title' => 'Нео Витес для иммунитета',
         'text' => 'НЕО ВИТЕС (для иммунитета) стимулирует как специфические, так и неспецифические факторы иммунитета.',
         'link' => 'К препарату',
@@ -25,7 +25,7 @@ class BannersSeeder extends Seeder
       ),
       array(
         'id' => 2,
-        'img' => 'img-2.png',
+        'img' => 'img/banners/img-2.png',
         'title' => 'Нео Витес для иммунитета',
         'text' => 'НЕО ВИТЕС (для иммунитета) стимулирует как специфические, так и неспецифические факторы иммунитета.',
         'link' => 'К препарату',
@@ -33,7 +33,7 @@ class BannersSeeder extends Seeder
       ),
       array(
         'id' => 3,
-        'img' => 'img-1.png',
+        'img' => 'img/banners/img-1.png',
         'title' => 'Нео Витес для иммунитета',
         'text' => null,
         'link' => null,

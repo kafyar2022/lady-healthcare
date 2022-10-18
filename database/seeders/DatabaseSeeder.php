@@ -21,9 +21,9 @@ class DatabaseSeeder extends Seeder
     ]);
 
     $this->call([
-      TextsSeeder::class,
-      SocialLinksSeeder::class,
-      VacanciesSeeder::class,
+      // TextsSeeder::class,
+      // SocialLinksSeeder::class,
+      // VacanciesSeeder::class,
       DrugsSeeder::class,
       DirectionsSeeder::class,
       BannersSeeder::class,

@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BannersController;
-use App\Http\Controllers\CarrierController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DrugsController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\TextsController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,43 +21,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [MainController::class, 'index'])->name('main');
 
-Route::get('/drugs', [DrugsController::class, 'index'])->name('drugs');
-Route::get('/drugs/download-instruction/{id}', [DrugsController::class, 'downloadInstruction'])->name('drugs.download-instruction');
-Route::post('/drugs/filter', [DrugsController::class, 'filterDrugs']);
-Route::get('/drugs/{slug}', [DrugsController::class, 'show'])->name('drugs.show');
-
-Route::post('/carrier/apply', [CarrierController::class, 'apply'])->name('carrier.apply');
-Route::get('/vacancies', [CarrierController::class, 'vacancies']);
-Route::get('/vacancy-download', [CarrierController::class, 'downloadVacancy']);
+Route::get('/products', [ProductsController::class, 'index'])->name('products');
+Route::post('/products/filter', [ProductsController::class, 'filter']);
+Route::get('/products/{slug}', [ProductsController::class, 'show'])->name('products.show');
 
 Route::post('/auth/check', [AuthController::class, 'check'])->name('auth.check');
 Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
+Route::get('/auth/login', [AuthController::class, 'login'])->name('auth.login');
 
-Route::group(['middleware' => ['AuthCheck']], function () {
-  Route::get('/auth/login', [AuthController::class, 'login'])->name('auth.login');
+Route::group(['middleware' => ['AdminCheck'], 'prefix' => 'admin'], function () {
+  Route::get('/', [AdminController::class, 'index'])->name('admin');
+  Route::get('/products', [AdminController::class, 'products'])->name('admin.products');
+  Route::get('/banners', [AdminController::class, 'banners'])->name('dashboard.banners');
 
-  Route::group(['middleware' => ['AdminCheck'], 'prefix' => 'dashboard'], function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/drugs', [DashboardController::class, 'drugs'])->name('dashboard.drugs');
-    Route::get('/banners', [DashboardController::class, 'banners'])->name('dashboard.banners');
+  Route::post('/text-update', [TextsController::class, 'update']);
+  Route::post('/map-update', [TextsController::class, 'updateMap']);
 
-    Route::post('/text-update', [TextsController::class, 'update']);
-    Route::post('/map-update', [TextsController::class, 'updateMap']);
+  Route::post('/insert-social-link', [AdminController::class, 'insertSocialLink']);
+  Route::post('/update-social-link', [AdminController::class, 'updateSocialLink']);
+  Route::get('/destroy-social-link', [AdminController::class, 'destroySocialLink']);
 
-    Route::post('/insert-social-link', [DashboardController::class, 'insertSocialLink']);
-    Route::post('/update-social-link', [DashboardController::class, 'updateSocialLink']);
-    Route::get('/destroy-social-link', [DashboardController::class, 'destroySocialLink']);
+  Route::get('/drug-create', [DrugsController::class, 'createDrug']);
+  Route::post('/drug-store', [DrugsController::class, 'storeDrug']);
+  Route::get('/drug-edit', [DrugsController::class, 'editDrug']);
+  Route::post('/drug-update', [DrugsController::class, 'updateDrug']);
+  Route::get('/drug-destroy', [DrugsController::class, 'destroyDrug']);
 
-    Route::get('/drug-create', [DrugsController::class, 'createDrug']);
-    Route::post('/drug-store', [DrugsController::class, 'storeDrug']);
-    Route::get('/drug-edit', [DrugsController::class, 'editDrug']);
-    Route::post('/drug-update', [DrugsController::class, 'updateDrug']);
-    Route::get('/drug-destroy', [DrugsController::class, 'destroyDrug']);
-
-    Route::post('/banners-store', [BannersController::class, 'store']);
-    Route::get('/banners-destroy', [BannersController::class, 'destroy']);
-    Route::post('/banners-update', [BannersController::class, 'update']);
-  });
+  Route::post('/banners-store', [BannersController::class, 'store']);
+  Route::get('/banners-destroy', [BannersController::class, 'destroy']);
+  Route::post('/banners-update', [BannersController::class, 'update']);
 });

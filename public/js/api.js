@@ -18,7 +18,7 @@ const getVacancies = (onSuccess) =>
     .catch((err) => console.error(err));
 
 const getDrugsByOption = (options, onSuccess) =>
-  fetch(`/drugs/filter?page=${options.page}`, {
+  fetch(`/products/filter?page=${options.page}`, {
     headers,
     method: 'post',
     body: JSON.stringify(options),
